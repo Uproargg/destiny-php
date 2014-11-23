@@ -1,6 +1,6 @@
-<?php namespace Destiny;
+<?php namespace Destiny\Game;
 
-class User {
+class Player {
 
     public $iconPath;
 

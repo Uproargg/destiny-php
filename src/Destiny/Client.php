@@ -1,5 +1,6 @@
 <?php namespace Destiny;
 
+use Destiny\Game\Player;
 use Exception;
 use GuzzleHttp\Client as Http;
 
@@ -26,7 +27,7 @@ class Client {
      * @return \Destiny\User
      * @throws \Exception
      */
-    public function fetchUser($username, $platform)
+    public function fetchPlayer($username, $platform)
     {
         $response = $this->http->get('http://www.bungie.net/Platform/Destiny/SearchDestinyPlayer/' . $platform . '/' . $username);
 
@@ -34,10 +35,10 @@ class Client {
 
         if( ! isset($json['Response'][0]['membershipId']))
         {
-            throw new Exception('User not found');
+            throw new Exception('Player not found');
         }
 
-        return new User(
+        return new Player(
             $json['Response'][0]['iconPath'],
             $json['Response'][0]['membershipType'],
             $json['Response'][0]['membershipId'],
