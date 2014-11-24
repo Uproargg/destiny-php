@@ -1,7 +1,7 @@
 <?php namespace Destiny\Game;
 
-use Destiny\Support\Collections\CharacterCollection;
 use GuzzleHttp\Client as Http;
+use Destiny\Support\Collections\CharacterCollection;
 
 class Player {
 
@@ -10,7 +10,7 @@ class Player {
      *
      * @var \GuzzleHttp\Client
      */
-    private $http;
+    protected $http;
 
     /**
      * The players icon path.

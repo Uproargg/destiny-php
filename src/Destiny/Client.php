@@ -7,9 +7,11 @@ use Destiny\Game\Player;
 class Client {
 
     /**
+     * Class Guzzle instance.
+     *
      * @var \GuzzleHttp\Client
      */
-    private $http;
+    protected $http;
 
     /**
      * Constructor
