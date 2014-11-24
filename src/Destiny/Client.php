@@ -1,8 +1,8 @@
 <?php namespace Destiny;
 
-use Destiny\Game\Player;
-use Exception;
 use GuzzleHttp\Client as Http;
+use Destiny\Exceptions\PlayerNotFoundException;
+use Destiny\Game\Player;
 
 class Client {
 
@@ -16,16 +16,16 @@ class Client {
      */
     public function __construct()
     {
-        $this->http = new Http();
+        $this->http = new Http;
     }
 
     /**
-     * Fetch a player/user by username and platform.
+     * Fetch a player by username and platform.
      *
      * @param $username
      * @param $platform
-     * @return \Destiny\User
-     * @throws \Exception
+     * @throws \Destiny\Exceptions\PlayerNotFoundException
+     * @return \Destiny\Game\User
      */
     public function fetchPlayer($username, $platform)
     {
@@ -35,7 +35,7 @@ class Client {
 
         if( ! isset($json['Response'][0]['membershipId']))
         {
-            throw new Exception('Player not found');
+            throw new PlayerNotFoundException;
         }
 
         return new Player(
@@ -44,6 +44,30 @@ class Client {
             $json['Response'][0]['membershipId'],
             $json['Response'][0]['displayName']
         );
+    }
+
+    /**
+     * Fetch an Xbox player by username.
+     *
+     * @param $username
+     * @return \Destiny\Game\User
+     * @throws \Destiny\Exceptions\PlayerNotFoundException
+     */
+    public function fetchXboxPlayer($username)
+    {
+        return $this->fetchPlayer($username, 1);
+    }
+
+    /**
+     * Fetch a PSN player by username.
+     *
+     * @param $username
+     * @return \Destiny\Game\User
+     * @throws \Destiny\Exceptions\PlayerNotFoundException
+     */
+    public function fetchPsnPlayer($username)
+    {
+        return $this->fetchPlayer($username, 2);
     }
 
 } 

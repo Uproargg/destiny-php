@@ -3,31 +3,31 @@
 class FetchUserTest extends PHPUnit_Framework_TestCase {
 
     /**
-     * Test fetching an Xbox user.
+     * Test fetching an Xbox player.
      *
      * @throws \Exception
      */
     public function testFetchXboxPlayer()
     {
-        $destiny = new Destiny\Client();
+        $destiny = new Destiny\Client;
 
-        $user = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $destiny->fetchXboxPlayer('aFreshMelon');
 
-        $this->assertInstanceOf('Destiny\Game\Player', $user);
+        $this->assertInstanceOf('Destiny\Game\Player', $player);
     }
 
     /**
-     * Test fetching a PSN user.
+     * Test fetching a PSN player.
      *
      * @throws \Exception
      */
     public function testFetchPsnPlayer()
     {
-        $destiny = new Destiny\Client();
+        $destiny = new Destiny\Client;
 
-        $user = $destiny->fetchPlayer('Chrakker', 2);
+        $player = $destiny->fetchPsnPlayer('Chrakker');
 
-        $this->assertInstanceOf('Destiny\Game\Player', $user);
+        $this->assertInstanceOf('Destiny\Game\Player', $player);
     }
 
 }

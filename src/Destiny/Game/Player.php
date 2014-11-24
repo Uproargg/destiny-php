@@ -1,6 +1,13 @@
 <?php namespace Destiny\Game;
 
+use GuzzleHttp\Client as Http;
+
 class Player {
+
+    /**
+     * @var \GuzzleHttp\Client
+     */
+    private $http;
 
     public $iconPath;
 
@@ -20,6 +27,7 @@ class Player {
      */
     public function __construct($iconPath, $membershipType, $membershipId, $displayName)
     {
+        $this->http = new Http;
         $this->iconPath = $iconPath;
         $this->membershipType = $membershipType;
         $this->membershipId = $membershipId;
@@ -44,7 +52,7 @@ class Player {
 
         $json = $response->json();
 
-        return $json['Response']['data']['characters'];
+        return $json['Response']['data']['characters'][0]['characterBase'];
     }
 
 }
