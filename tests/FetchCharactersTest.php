@@ -2,6 +2,9 @@
 
 class FetchCharactersTest extends PHPUnit_Framework_TestCase {
 
+    /**
+     * Test fetching a players characters.
+     */
     public function testFetchCharacters()
     {
         $destiny = new Destiny\Client;
@@ -10,7 +13,7 @@ class FetchCharactersTest extends PHPUnit_Framework_TestCase {
 
         $characters = $player->fetchCharacters();
 
-        $this->assertInstanceOf('Destiny\Game\Collections\CharacterCollection', $characters);
+        $this->assertInstanceOf('Destiny\Support\Collections\CharacterCollection', $characters);
     }
 
 }

@@ -1,20 +1,45 @@
 <?php namespace Destiny\Game;
 
+use Destiny\Support\Collections\CharacterCollection;
 use GuzzleHttp\Client as Http;
 
 class Player {
 
     /**
+     * Class Guzzle instance.
+     *
      * @var \GuzzleHttp\Client
      */
     private $http;
 
+    /**
+     * The players icon path.
+     *
+     * @var string
+     */
     public $iconPath;
 
+    /**
+     * The players membership type.
+     * 1 => Xbox
+     * 2 => PSN
+     *
+     * @var int
+     */
     public $membershipType;
 
+    /**
+     * The players membership ID.
+     *
+     * @var int
+     */
     public $membershipId;
 
+    /**
+     * The players display name.
+     *
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -37,7 +62,7 @@ class Player {
     /**
      * Fetch a users Destiny characters.
      *
-     * @return mixed
+     * @return \Destiny\Support\Collections\CharacterCollection
      */
     public function fetchCharacters()
     {
@@ -52,7 +77,9 @@ class Player {
 
         $json = $response->json();
 
-        return $json['Response']['data']['characters'][0]['characterBase'];
+        return new CharacterCollection(
+            $json['Response']['data']['characters']
+        );
     }
 
 }

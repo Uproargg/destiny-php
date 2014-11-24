@@ -1,7 +1,7 @@
 <?php namespace Destiny;
 
 use GuzzleHttp\Client as Http;
-use Destiny\Exceptions\PlayerNotFoundException;
+use Destiny\Support\Exceptions\PlayerNotFoundException;
 use Destiny\Game\Player;
 
 class Client {
@@ -24,7 +24,7 @@ class Client {
      *
      * @param $username
      * @param $platform
-     * @throws \Destiny\Exceptions\PlayerNotFoundException
+     * @throws \Destiny\Support\Exceptions\PlayerNotFoundException
      * @return \Destiny\Game\User
      */
     public function fetchPlayer($username, $platform)
@@ -51,7 +51,7 @@ class Client {
      *
      * @param $username
      * @return \Destiny\Game\User
-     * @throws \Destiny\Exceptions\PlayerNotFoundException
+     * @throws \Destiny\Support\Exceptions\PlayerNotFoundException
      */
     public function fetchXboxPlayer($username)
     {
@@ -63,7 +63,7 @@ class Client {
      *
      * @param $username
      * @return \Destiny\Game\User
-     * @throws \Destiny\Exceptions\PlayerNotFoundException
+     * @throws \Destiny\Support\Exceptions\PlayerNotFoundException
      */
     public function fetchPsnPlayer($username)
     {
