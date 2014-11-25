@@ -3,261 +3,351 @@
 class Character {
 
     /**
-     * @var string
-     */
-    public $membershipId;
-
-    /**
-     * @var int
-     */
-    public $membershipType;
-
-    /**
+     * The character's id.
+     *
      * @var string
      */
     public $characterId;
 
     /**
+     * The date when the character last played.
+     *
      * @var string
      */
     public $dateLastPlayed;
 
     /**
+     * How many minutes the character played in the last session.
+     *
      * @var string
      */
     public $minutesPlayedThisSession;
 
     /**
+     * How many minutes the character has played in total.
+     *
      * @var string
      */
     public $minutesPlayedTotal;
 
     /**
+     * The character's power level.
+     *
      * @var int
      */
     public $powerLevel;
 
     /**
+     * The character's race in a hashed version.
+     *
      * @var int
      */
     public $raceHash;
 
     /**
+     * The character's gender in a hashed version.
+     *
      * @var int
      */
     public $genderHash;
 
     /**
+     * The character's class in a hashed version.
+     *
      * @var int
      */
     public $classHash;
 
     /**
+     * The character's current activity in a hashed version.
+     *
      * @var int
      */
     public $currentActivityHash;
 
     /**
+     * The character's last completed story mission in a hashed version.
+     *
      * @var int
      */
     public $lastCompletedStoryHash;
 
     /**
+     * Defense values for the character.
+     *
      * @var array
      */
     public $defense;
 
     /**
+     * Intellect values for the character.
+     *
      * @var array
      */
     public $intellect;
 
     /**
+     * Discipline values for the character.
+     *
      * @var array
      */
     public $discipline;
 
     /**
+     * Strength values for the character.
+     *
      * @var array
      */
     public $strength;
 
     /**
+     * Light values for the character.
+     *
      * @var array
      */
     public $light;
 
     /**
+     * Armor values for the character.
+     *
      * @var array
      */
     public $armor;
 
     /**
+     * Agility values for the character.
+     *
      * @var array
      */
     public $agility;
 
     /**
+     * Recovery values for the character.
+     *
      * @var array
      */
     public $recovery;
 
     /**
+     * Optics values for the character.
+     *
      * @var array
      */
     public $optics;
 
     /**
+     * The selected face on the character.
+     *
      * @var int
      */
     public $face;
 
     /**
+     * The selected skin color on the character.
+     *
      * @var int
      */
     public $skinColor;
 
     /**
+     * The selected lip color on the character.
+     *
      * @var int
      */
     public $lipColor;
 
     /**
+     * The selected eye color on the character.
+     *
      * @var int
      */
     public $eyeColor;
 
     /**
+     * The selected hair color on the character.
+     *
      * @var int
      */
     public $hairColor;
 
     /**
+     * The selected feature color on the character.
+     *
      * @var int
      */
     public $featureColor;
 
     /**
+     * The selected decal color on the character.
+     *
      * @var int
      */
     public $decalColor;
 
     /**
+     * The flag whether to wear a helmet or not.
+     *
      * @var bool
      */
     public $wearHelmet;
 
     /**
+     * The hair index on the character.
+     *
      * @var int
      */
     public $hairIndex;
 
     /**
+     * The feature index on the character.
+     *
      * @var int
      */
     public $featureIndex;
 
     /**
+     * The decal index on the character.
+     *
      * @var int
      */
     public $decalIndex;
 
     /**
+     * The character's Grimoire score.
+     *
      * @var int
      */
     public $grimoireScore;
 
     /**
+     * The equipment this character holds.
+     *
      * @var array
      */
     public $equipment;
 
     /**
+     * This characters gender.
+     *
      * @var int
      */
     public $genderType;
 
     /**
+     * This characters class.
+     *
      * @var int
      */
     public $classType;
 
     /**
+     * This character's build stat group hash.
+     *
      * @var int
      */
     public $buildStatGroupHash;
 
     /**
+     * The daily progress the character has made.
+     *
      * @var int
      */
     public $dailyProgress;
 
     /**
+     * The weekly progress the character has made.
+     *
      * @var int
      */
     public $weeklyProgress;
 
     /**
+     * The progress this character has in the current week in total.
+     *
      * @var int
      */
     public $currentProgress;
 
     /**
+     * This characters level.
+     *
      * @var int
      */
     public $level;
 
     /**
+     * This character's step to the next level.
+     *
      * @var int
      */
     public $step;
 
     /**
+     * This character's progress towards the next level.
+     *
      * @var int
      */
     public $progressToNextLevel;
 
     /**
+     * The total EP needed to get to the next level.
+     *
      * @var int
      */
     public $nextLevelAt;
 
     /**
+     * This character's progression hash.
+     *
      * @var int
      */
     public $progressionHash;
 
     /**
+     * The path to the emblem this character is using. (relative to Bungie's website)
+     *
      * @var string
      */
     public $emblemPath;
 
     /**
+     * The path to the background this character is using. (relative to Bungie's website)
+     *
      * @var string
      */
     public $backgroundPath;
 
     /**
+     * The hash of the emblem this character uses.
+     *
      * @var int
      */
     public $emblemHash;
 
     /**
+     * The character's level.
+     *
      * @var int
      */
     public $characterLevel;
 
     /**
+     * The character's base level not including light level.
+     *
      * @var int
      */
     public $baseCharacterLevel;
 
     /**
+     * Whether the level of the character is above the level cap.
+     *
      * @var bool
      */
     public $isPrestigeLevel;
 
     /**
+     * How many percent the character needs to the next level.
+     *
      * @var double
      */
     public $percentToNextLevel;
