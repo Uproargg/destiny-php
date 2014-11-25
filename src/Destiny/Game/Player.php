@@ -77,6 +77,8 @@ class Player {
 
         $json = $response->json();
 
+        var_dump($json['Response']['data']['characters']['0']['characterBase']['stats']);
+
         return new CharacterCollection(
             $json['Response']['data']['characters']
         );
