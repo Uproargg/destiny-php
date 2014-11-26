@@ -22,7 +22,7 @@ use Destiny\Client;
 $destiny = new Client;
 
 // Find a player
-$player = $destiny->findXboxPlayer('aFreshMelon');
+$player = $destiny->fetchXboxPlayer('aFreshMelon');
 
 // Get the first character
 $firstCharacter = $player->characters->get(0);
