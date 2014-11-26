@@ -136,6 +136,13 @@ class Character {
     public $optics;
 
     /**
+     * The characters personality.
+     *
+     * @var int
+     */
+    public $personality;
+
+    /**
      * The selected face on the character.
      *
      * @var int
@@ -355,113 +362,110 @@ class Character {
     /**
      * Constructor
      *
-     * @param $agility
-     * @param $armor
-     * @param $backgroundPath
-     * @param $baseCharacterLevel
-     * @param $buildStatGroupHash
      * @param $characterId
-     * @param $characterLevel
-     * @param $classHash
-     * @param $classType
-     * @param $currentActivityHash
-     * @param $currentProgress
-     * @param $dailyProgress
      * @param $dateLastPlayed
-     * @param $decalColor
-     * @param $decalIndex
-     * @param $defense
-     * @param $discipline
-     * @param $emblemHash
-     * @param $emblemPath
-     * @param $equipment
-     * @param $eyeColor
-     * @param $face
-     * @param $featureColor
-     * @param $featureIndex
-     * @param $genderHash
-     * @param $genderType
-     * @param $grimoireScore
-     * @param $hairColor
-     * @param $hairIndex
-     * @param $intellect
-     * @param $isPrestigeLevel
-     * @param $lastCompletedStoryHash
-     * @param $level
-     * @param $light
-     * @param $lipColor
-     * @param $membershipId
-     * @param $membershipType
      * @param $minutesPlayedThisSession
      * @param $minutesPlayedTotal
-     * @param $nextLevelAt
-     * @param $optics
-     * @param $percentToNextLevel
      * @param $powerLevel
-     * @param $progressToNextLevel
-     * @param $progressionHash
      * @param $raceHash
-     * @param $recovery
-     * @param $skinColor
-     * @param $step
+     * @param $genderHash
+     * @param $classHash
+     * @param $currentActivityHash
+     * @param $lastCompletedStoryHash
+     * @param $defense
+     * @param $intellect
+     * @param $discipline
      * @param $strength
+     * @param $light
+     * @param $armor
+     * @param $agility
+     * @param $recovery
+     * @param $optics
+     * @param $personality
+     * @param $face
+     * @param $skinColor
+     * @param $lipColor
+     * @param $eyeColor
+     * @param $hairColor
+     * @param $featureColor
+     * @param $decalColor
      * @param $wearHelmet
+     * @param $hairIndex
+     * @param $featureIndex
+     * @param $decalIndex
+     * @param $grimoireScore
+     * @param $equipment
+     * @param $genderType
+     * @param $classType
+     * @param $buildStatGroupHash
+     * @param $dailyProgress
      * @param $weeklyProgress
+     * @param $currentProgress
+     * @param $level
+     * @param $step
+     * @param $progressToNextLevel
+     * @param $nextLevelAt
+     * @param $progressionHash
+     * @param $emblemPath
+     * @param $backgroundPath
+     * @param $emblemHash
+     * @param $characterLevel
+     * @param $baseCharacterLevel
+     * @param $isPrestigeLevel
+     * @param $percentToNextLevel
      */
-    function __construct($agility, $armor, $backgroundPath, $baseCharacterLevel, $buildStatGroupHash, $characterId, $characterLevel, $classHash, $classType, $currentActivityHash, $currentProgress, $dailyProgress, $dateLastPlayed, $decalColor, $decalIndex, $defense, $discipline, $emblemHash, $emblemPath, $equipment, $eyeColor, $face, $featureColor, $featureIndex, $genderHash, $genderType, $grimoireScore, $hairColor, $hairIndex, $intellect, $isPrestigeLevel, $lastCompletedStoryHash, $level, $light, $lipColor, $membershipId, $membershipType, $minutesPlayedThisSession, $minutesPlayedTotal, $nextLevelAt, $optics, $percentToNextLevel, $powerLevel, $progressToNextLevel, $progressionHash, $raceHash, $recovery, $skinColor, $step, $strength, $wearHelmet, $weeklyProgress)
-    {
-        $this->agility = $agility;
-        $this->armor = $armor;
-        $this->backgroundPath = $backgroundPath;
-        $this->baseCharacterLevel = $baseCharacterLevel;
-        $this->buildStatGroupHash = $buildStatGroupHash;
+    public function __construct($characterId, $dateLastPlayed, $minutesPlayedThisSession, $minutesPlayedTotal, $powerLevel, $raceHash, $genderHash, $classHash, $currentActivityHash, $lastCompletedStoryHash, $defense, $intellect, $discipline, $strength, $light, $armor, $agility, $recovery, $optics, $personality, $face, $skinColor, $lipColor, $eyeColor, $hairColor, $featureColor, $decalColor, $wearHelmet, $hairIndex, $featureIndex, $decalIndex, $grimoireScore, $equipment, $genderType, $classType, $buildStatGroupHash, $dailyProgress, $weeklyProgress, $currentProgress, $level, $step, $progressToNextLevel, $nextLevelAt, $progressionHash, $emblemPath, $backgroundPath, $emblemHash, $characterLevel, $baseCharacterLevel, $isPrestigeLevel, $percentToNextLevel) {
         $this->characterId = $characterId;
-        $this->characterLevel = $characterLevel;
-        $this->classHash = $classHash;
-        $this->classType = $classType;
-        $this->currentActivityHash = $currentActivityHash;
-        $this->currentProgress = $currentProgress;
-        $this->dailyProgress = $dailyProgress;
         $this->dateLastPlayed = $dateLastPlayed;
-        $this->decalColor = $decalColor;
-        $this->decalIndex = $decalIndex;
-        $this->defense = $defense;
-        $this->discipline = $discipline;
-        $this->emblemHash = $emblemHash;
-        $this->emblemPath = $emblemPath;
-        $this->equipment = $equipment;
-        $this->eyeColor = $eyeColor;
-        $this->face = $face;
-        $this->featureColor = $featureColor;
-        $this->featureIndex = $featureIndex;
-        $this->genderHash = $genderHash;
-        $this->genderType = $genderType;
-        $this->grimoireScore = $grimoireScore;
-        $this->hairColor = $hairColor;
-        $this->hairIndex = $hairIndex;
-        $this->intellect = $intellect;
-        $this->isPrestigeLevel = $isPrestigeLevel;
-        $this->lastCompletedStoryHash = $lastCompletedStoryHash;
-        $this->level = $level;
-        $this->light = $light;
-        $this->lipColor = $lipColor;
-        $this->membershipId = $membershipId;
-        $this->membershipType = $membershipType;
         $this->minutesPlayedThisSession = $minutesPlayedThisSession;
         $this->minutesPlayedTotal = $minutesPlayedTotal;
-        $this->nextLevelAt = $nextLevelAt;
-        $this->optics = $optics;
-        $this->percentToNextLevel = $percentToNextLevel;
         $this->powerLevel = $powerLevel;
-        $this->progressToNextLevel = $progressToNextLevel;
-        $this->progressionHash = $progressionHash;
         $this->raceHash = $raceHash;
-        $this->recovery = $recovery;
-        $this->skinColor = $skinColor;
-        $this->step = $step;
+        $this->genderHash = $genderHash;
+        $this->classHash = $classHash;
+        $this->currentActivityHash = $currentActivityHash;
+        $this->lastCompletedStoryHash = $lastCompletedStoryHash;
+        $this->defense = $defense;
+        $this->intellect = $intellect;
+        $this->discipline = $discipline;
         $this->strength = $strength;
+        $this->light = $light;
+        $this->armor = $armor;
+        $this->agility = $agility;
+        $this->recovery = $recovery;
+        $this->optics = $optics;
+        $this->personality = $personality;
+        $this->face = $face;
+        $this->skinColor = $skinColor;
+        $this->lipColor = $lipColor;
+        $this->eyeColor = $eyeColor;
+        $this->hairColor = $hairColor;
+        $this->featureColor = $featureColor;
+        $this->decalColor = $decalColor;
         $this->wearHelmet = $wearHelmet;
+        $this->hairIndex = $hairIndex;
+        $this->featureIndex = $featureIndex;
+        $this->decalIndex = $decalIndex;
+        $this->grimoireScore = $grimoireScore;
+        $this->equipment = $equipment;
+        $this->genderType = $genderType;
+        $this->classType = $classType;
+        $this->buildStatGroupHash = $buildStatGroupHash;
+        $this->dailyProgress = $dailyProgress;
         $this->weeklyProgress = $weeklyProgress;
+        $this->currentProgress = $currentProgress;
+        $this->level = $level;
+        $this->step = $step;
+        $this->progressToNextLevel = $progressToNextLevel;
+        $this->nextLevelAt = $nextLevelAt;
+        $this->progressionHash = $progressionHash;
+        $this->emblemPath = $emblemPath;
+        $this->backgroundPath = $backgroundPath;
+        $this->emblemHash = $emblemHash;
+        $this->characterLevel = $characterLevel;
+        $this->baseCharacterLevel = $baseCharacterLevel;
+        $this->isPrestigeLevel = $isPrestigeLevel;
+        $this->percentToNextLevel = $percentToNextLevel;
     }
 
 }

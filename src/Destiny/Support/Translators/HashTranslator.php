@@ -49,4 +49,22 @@ class HashTranslator {
         return $this->hashes[$hash];
     }
 
+    /**
+     * Reverse the a translation back to a hash.
+     *
+     * @param $translation
+     * @return mixed
+     */
+    public function reverse($translation)
+    {
+        $search = array_search($translation, $this->hashes);
+
+        if( ! $search)
+        {
+            throw new HashNotFoundException;
+        }
+
+        return $search;
+    }
+
 } 
