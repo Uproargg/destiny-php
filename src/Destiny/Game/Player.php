@@ -142,7 +142,7 @@ class Player {
         }
 
         $this->characters = new CharacterCollection($characters);
-        
+
         return $this->characters;
     }
 
