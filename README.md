@@ -6,6 +6,8 @@ A PHP API for Destiny The Game
 This is an easy to use PHP API to access all sorts of information about any Destiny account. 
 This includes characters equipment, progression and all sorts of other information.
 
+**Please note that this project is still in BETA!**
+
 Usage
 -----
 
