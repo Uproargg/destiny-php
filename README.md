@@ -11,7 +11,7 @@ This includes characters equipment, progression and all sorts of other informati
 Usage
 -----
 
-Install the latest version with `composer require afreshmelon/destiny`
+Install the latest version with `composer require afreshmelon/destiny dev-master`
 
 ```php
 <?php
