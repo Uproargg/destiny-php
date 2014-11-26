@@ -64,6 +64,7 @@ class Player {
         $this->membershipType = $membershipType;
         $this->membershipId = $membershipId;
         $this->displayName = $displayName;
+        $this->characters = $this->fetchCharacters();
     }
 
     /**
@@ -71,7 +72,7 @@ class Player {
      *
      * @return \Destiny\Support\Collections\CharacterCollection
      */
-    public function fetchCharacters()
+    protected function fetchCharacters()
     {
         $type = 'TigerXbox';
 
@@ -141,9 +142,7 @@ class Player {
             );
         }
 
-        $this->characters = new CharacterCollection($characters);
-
-        return $this->characters;
+        return new CharacterCollection($characters);
     }
 
 }
