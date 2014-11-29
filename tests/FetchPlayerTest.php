@@ -41,16 +41,21 @@ class FetchPlayerTest extends PHPUnit_Framework_TestCase {
 
         $player = $destiny->fetchXboxPlayer('aFreshMelon');
 
-        $this->assertInstanceOf('Destiny\Support\Collections\CharacterCollection', $player->characters);
+        $this->assertInstanceOf('Destiny\Game\CharacterCollection', $player->characters);
     }
 
-    public function testGettingCharacterAttribute()
+    /**
+     * Test the example in the readme.
+     */
+    public function testExampleInReadme()
     {
         $destiny = new Destiny\Client;
 
         $player = $destiny->fetchXboxPlayer('aFreshMelon');
 
-        $firstCharacter = $player->characters->get(0);
+        $firstCharacter = $player->characters->first();
+
+        $this->assertInstanceOf('Destiny\Game\Character', $player->characters->get(0));
 
         $this->assertInternalType('int', $firstCharacter->characterLevel);
     }

@@ -1,16 +1,10 @@
 <?php namespace Destiny\Game;
 
-use GuzzleHttp\Client as Http;
-use Destiny\Support\Collections\CharacterCollection;
+use Destiny\Support\Exceptions\NoCharactersFoundException;
+use Destiny\Support\Http;
+use Destiny\Support\Exceptions\CharacterNotFoundException;
 
-class Player {
-
-    /**
-     * Class Guzzle instance.
-     *
-     * @var \GuzzleHttp\Client
-     */
-    protected $http;
+class Player extends Http {
 
     /**
      * The players icon path.
@@ -59,7 +53,6 @@ class Player {
      */
     public function __construct($iconPath, $membershipType, $membershipId, $displayName)
     {
-        $this->http = new Http;
         $this->iconPath = $iconPath;
         $this->membershipType = $membershipType;
         $this->membershipId = $membershipId;
@@ -70,20 +63,16 @@ class Player {
     /**
      * Fetch a users Destiny characters.
      *
-     * @return \Destiny\Support\Collections\CharacterCollection
+     * @return \Destiny\Game\CharacterCollection
      */
     protected function fetchCharacters()
     {
-        $type = 'TigerXbox';
+        $json = $this->requestJson('http://www.bungie.net/Platform/Destiny/' . $this->makeTypeWord() . '/Account/' . $this->membershipId);
 
-        if($this->membershipType == 2)
+        if(count($json['Response']['data']['characters']) < 1)
         {
-            $type = 'TigerPSN';
+            throw new NoCharactersFoundException;
         }
-
-        $response = $this->http->get('http://www.bungie.net/Platform/Destiny/' . $type . '/Account/' . $this->membershipId);
-
-        $json = $response->json();
 
         foreach($json['Response']['data']['characters'] as $character)
         {
@@ -143,6 +132,24 @@ class Player {
         }
 
         return new CharacterCollection($characters);
+    }
+
+    /**
+     * Make the type word from the player type.
+     *
+     * @return string
+     */
+    protected function makeTypeWord()
+    {
+        $type = 'TigerXbox';
+
+        if ($this->membershipType == 2) {
+            $type = 'TigerPSN';
+
+            return $type;
+        }
+
+        return $type;
     }
 
 }

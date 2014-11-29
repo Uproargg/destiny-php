@@ -27,7 +27,7 @@ $destiny = new Client;
 $player = $destiny->fetchXboxPlayer('aFreshMelon');
 
 // Get the first character
-$firstCharacter = $player->characters->get(0);
+$firstCharacter = $player->characters->first();
 
 // Output the characters level
 echo $firstCharacter->characterLevel;

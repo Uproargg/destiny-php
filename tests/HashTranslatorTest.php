@@ -7,7 +7,7 @@ class HashTranslatorTest extends PHPUnit_Framework_TestCase {
      */
     public function testHashTranslation()
     {
-        $translator = new Destiny\Support\Translators\HashTranslator;
+        $translator = new Destiny\Game\HashTranslator;
 
         $translation = $translator->translate(2271682572);
 
@@ -19,7 +19,7 @@ class HashTranslatorTest extends PHPUnit_Framework_TestCase {
      */
     public function testReverseTranslation()
     {
-        $translator = new Destiny\Support\Translators\HashTranslator;
+        $translator = new Destiny\Game\HashTranslator;
 
         $translation = $translator->reverse('Crucible');
 

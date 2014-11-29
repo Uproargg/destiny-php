@@ -1,4 +1,4 @@
-<?php namespace Destiny\Support\Translators;
+<?php namespace Destiny\Game;
 
 use Destiny\Support\Exceptions\HashNotFoundException;
 
