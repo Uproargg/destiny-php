@@ -414,7 +414,8 @@ class Character {
      * @param $isPrestigeLevel
      * @param $percentToNextLevel
      */
-    public function __construct($characterId, $dateLastPlayed, $minutesPlayedThisSession, $minutesPlayedTotal, $powerLevel, $raceHash, $genderHash, $classHash, $currentActivityHash, $lastCompletedStoryHash, $defense, $intellect, $discipline, $strength, $light, $armor, $agility, $recovery, $optics, $personality, $face, $skinColor, $lipColor, $eyeColor, $hairColor, $featureColor, $decalColor, $wearHelmet, $hairIndex, $featureIndex, $decalIndex, $grimoireScore, $equipment, $genderType, $classType, $buildStatGroupHash, $dailyProgress, $weeklyProgress, $currentProgress, $level, $step, $progressToNextLevel, $nextLevelAt, $progressionHash, $emblemPath, $backgroundPath, $emblemHash, $characterLevel, $baseCharacterLevel, $isPrestigeLevel, $percentToNextLevel) {
+    public function __construct($characterId, $dateLastPlayed, $minutesPlayedThisSession, $minutesPlayedTotal, $powerLevel, $raceHash, $genderHash, $classHash, $currentActivityHash, $lastCompletedStoryHash, $defense, $intellect, $discipline, $strength, $light, $armor, $agility, $recovery, $optics, $personality, $face, $skinColor, $lipColor, $eyeColor, $hairColor, $featureColor, $decalColor, $wearHelmet, $hairIndex, $featureIndex, $decalIndex, $grimoireScore, $equipment, $genderType, $classType, $buildStatGroupHash, $dailyProgress, $weeklyProgress, $currentProgress, $level, $step, $progressToNextLevel, $nextLevelAt, $progressionHash, $emblemPath, $backgroundPath, $emblemHash, $characterLevel, $baseCharacterLevel, $isPrestigeLevel, $percentToNextLevel)
+    {
         $this->characterId = $characterId;
         $this->dateLastPlayed = $dateLastPlayed;
         $this->minutesPlayedThisSession = $minutesPlayedThisSession;

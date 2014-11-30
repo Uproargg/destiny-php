@@ -7,6 +7,14 @@ use Destiny\Game\Player;
 class Client extends Http {
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
      * Fetch a player by username and platform.
      *
      * @param $username

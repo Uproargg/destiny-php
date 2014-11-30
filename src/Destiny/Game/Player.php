@@ -53,6 +53,7 @@ class Player extends Http {
      */
     public function __construct($iconPath, $membershipType, $membershipId, $displayName)
     {
+        parent::__construct();
         $this->iconPath = $iconPath;
         $this->membershipType = $membershipType;
         $this->membershipId = $membershipId;
