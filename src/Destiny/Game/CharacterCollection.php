@@ -14,11 +14,11 @@ class CharacterCollection extends Collection {
     {
         $characters = new CharacterCollection([]);
 
-        foreach($this->items as $key => $character)
+        foreach($this->all() as $key => $character)
         {
             if($character->classHash == $classHash)
             {
-                $characters->push($this->items[$key]);
+                $characters->push($this->get($key));
             }
         }
 
@@ -76,11 +76,11 @@ class CharacterCollection extends Collection {
      */
     public function firstByClassHash($classHash)
     {
-        foreach($this->items as $key => $character)
+        foreach($this->all() as $key => $character)
         {
             if($character->classHash == $classHash)
             {
-                return $this->items[$key];
+                return $this->get($key);
             }
         }
 
