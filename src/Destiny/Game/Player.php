@@ -15,8 +15,6 @@ class Player extends Http {
 
     /**
      * The players membership type.
-     * 1 => Xbox
-     * 2 => PSN
      *
      * @var int
      */

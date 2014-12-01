@@ -1,8 +1,9 @@
 <?php namespace Destiny\Game;
 
+use Destiny\Support\Contracts\Translates;
 use Destiny\Support\Exceptions\HashNotFoundException;
 
-class HashTranslator {
+class HashTranslator implements Translates {
 
     /**
      * The array of hashes and translations available to this translator.
