@@ -1,7 +1,5 @@
 <?php namespace Destiny\Support;
 
-use Closure;
-
 class Collection {
 
     /**
