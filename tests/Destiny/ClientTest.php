@@ -1,6 +1,14 @@
-<?php 
+<?php namespace Destiny;
 
-class FetchPlayerTest extends PHPUnit_Framework_TestCase {
+class ClientTest extends TestCase {
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * Test fetching an Xbox player.
@@ -9,9 +17,7 @@ class FetchPlayerTest extends PHPUnit_Framework_TestCase {
      */
     public function testFetchXboxPlayer()
     {
-        $destiny = new Destiny\Client;
-
-        $player = $destiny->fetchXboxPlayer('aFreshMelon');
+        $player = $this->destiny->fetchXboxPlayer('aFreshMelon');
 
         $this->assertInstanceOf('Destiny\Game\Player', $player);
     }
@@ -23,9 +29,7 @@ class FetchPlayerTest extends PHPUnit_Framework_TestCase {
      */
     public function testFetchPsnPlayer()
     {
-        $destiny = new Destiny\Client;
-
-        $player = $destiny->fetchPsnPlayer('Chrakker');
+        $player = $this->destiny->fetchPsnPlayer('Chrakker');
 
         $this->assertInstanceOf('Destiny\Game\Player', $player);
     }
@@ -37,11 +41,7 @@ class FetchPlayerTest extends PHPUnit_Framework_TestCase {
      */
     public function testAutomaticCharacterFetching()
     {
-        $destiny = new Destiny\Client;
-
-        $player = $destiny->fetchXboxPlayer('aFreshMelon');
-
-        $this->assertInstanceOf('Destiny\Game\CharacterCollection', $player->characters);
+        $this->assertInstanceOf('Destiny\Game\CharacterCollection', $this->player->characters);
     }
 
     /**
@@ -49,13 +49,9 @@ class FetchPlayerTest extends PHPUnit_Framework_TestCase {
      */
     public function testExampleInReadme()
     {
-        $destiny = new Destiny\Client;
+        $firstCharacter = $this->player->characters->first();
 
-        $player = $destiny->fetchXboxPlayer('aFreshMelon');
-
-        $firstCharacter = $player->characters->first();
-
-        $this->assertInstanceOf('Destiny\Game\Character', $player->characters->get(0));
+        $this->assertInstanceOf('Destiny\Game\Character', $this->player->characters->get(0));
 
         $this->assertInternalType('int', $firstCharacter->characterLevel);
     }

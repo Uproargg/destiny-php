@@ -19,7 +19,6 @@ class Client extends Http {
      *
      * @param $username
      * @param $platform
-     * @throws \Destiny\Support\Exceptions\PlayerNotFoundException
      * @return \Destiny\Game\User
      */
     public function fetchPlayer($username, $platform)
@@ -44,7 +43,6 @@ class Client extends Http {
      *
      * @param $username
      * @return \Destiny\Game\User
-     * @throws \Destiny\Support\Exceptions\PlayerNotFoundException
      */
     public function fetchXboxPlayer($username)
     {
@@ -56,7 +54,6 @@ class Client extends Http {
      *
      * @param $username
      * @return \Destiny\Game\User
-     * @throws \Destiny\Support\Exceptions\PlayerNotFoundException
      */
     public function fetchPsnPlayer($username)
     {

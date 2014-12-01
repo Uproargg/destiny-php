@@ -1,8 +1,7 @@
 <?php namespace Destiny\Game;
 
-use Destiny\Support\Exceptions\NoCharactersFoundException;
 use Destiny\Support\Http;
-use Destiny\Support\Exceptions\CharacterNotFoundException;
+use Destiny\Support\Exceptions\NoCharactersFoundException;
 
 class Player extends Http {
 
