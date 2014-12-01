@@ -1,7 +1,5 @@
 <?php namespace Destiny;
 
-// TODO: Make all tests work offline (Guzzle mocking, Response forging)
-
 class TestCase extends \PHPUnit_Framework_TestCase {
 
     /**
@@ -9,6 +7,8 @@ class TestCase extends \PHPUnit_Framework_TestCase {
      *
      * @var \Destiny\Client
      */
+
+    // TODO: Make all tests work offline (Guzzle mocking, Response forging)
     public $destiny;
 
     /**
