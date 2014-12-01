@@ -15,17 +15,17 @@ class CharacterCollectionTest extends TestCase {
     /**
      * Test whether getting a warlock from the characters works.
      */
-    public function testGetWarlock()
+    public function testGetWarlocks()
     {
-        $this->assertInstanceOf('Destiny\Game\Character', $this->player->characters->getWarlock());
+        $this->assertInstanceOf('Destiny\Game\CharacterCollection', $this->player->characters->getWarlocks());
     }
 
     /**
      * Test whether getting a titan from the characters works.
      */
-    public function testGetTitan()
+    public function testGetTitans()
     {
-        $this->assertInstanceOf('Destiny\Game\Character', $this->player->characters->getTitan());
+        $this->assertInstanceOf('Destiny\Game\CharacterCollection', $this->player->characters->getTitans());
 
 
     }
@@ -33,9 +33,9 @@ class CharacterCollectionTest extends TestCase {
     /**
      * Test whether getting a hunter from the characters works.
      */
-    public function testGetHunter()
+    public function testGetHunters()
     {
-        $this->assertInstanceOf('Destiny\Game\Character', $this->player->characters->getHunter());
+        $this->assertInstanceOf('Destiny\Game\CharacterCollection', $this->player->characters->getHunters());
     }
 
 }

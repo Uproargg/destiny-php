@@ -6,52 +6,67 @@ use Destiny\Support\Exceptions\CharacterNotFoundException;
 class CharacterCollection extends Collection {
 
     /**
-     * Get a characters from the collection by class hash.
+     * Get characters by class hash.
      *
      * @param $classHash
-     * @return mixed|null
+     * @return \Destiny\Game\CharacterCollection|null
      */
-    public function getCharacterByClassHash($classHash)
+    public function getByClassHash($classHash)
     {
-        foreach($this->all() as $key => $character)
+        $characters = new CharacterCollection([]);
+
+        foreach($this->items as $key => $character)
         {
             if($character->classHash == $classHash)
             {
-                return $this->get($key);
+                $characters->push($this->items[$key]);
             }
         }
 
-        throw new CharacterNotFoundException;
+        return $characters->count() > 0 ? $characters : null ;
     }
 
     /**
-     * Get a warlock from the collection.
+     * Get characters by class name.
      *
-     * @return mixed|null
+     * @param $className
+     * @return \Destiny\Game\CharacterCollection|null
      */
-    public function getWarlock()
+    public function getByClassName($className)
     {
-        return $this->getCharacterByClassHash(2271682572);
+        $translator = new HashTranslator;
+
+        return $this->getByClassHash($translator->reverse($className));
     }
 
     /**
-     * Get a titan from the collection.
+     * Get warlocks in the collection.
      *
-     * @return mixed|null
+     * @return \Destiny\Game\CharacterCollection|null
      */
-    public function getTitan()
+    public function getWarlocks()
     {
-        return $this->getCharacterByClassHash(3655393761);
+        return $this->getByClassHash(2271682572);
     }
 
     /**
-     * Get a hunter from the collection.
+     * Get titans in the collection.
      *
-     * @return mixed|null
+     * @return \Destiny\Game\CharacterCollection|null
      */
-    public function getHunter()
+    public function getTitans()
     {
-        return $this->getCharacterByClassHash(671679327);
+        return $this->getByClassHash(3655393761);
+    }
+
+    /**
+     * Get hunters in the collection.
+     *
+     * @return \Destiny\Game\CharacterCollection|null
+     */
+    public function getHunters()
+    {
+        return $this->getByClassHash(671679327);
     }
 
 } 

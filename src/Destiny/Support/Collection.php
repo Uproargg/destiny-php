@@ -1,6 +1,8 @@
 <?php namespace Destiny\Support;
 
-class Collection {
+use Countable;
+
+class Collection implements Countable {
 
     /**
      * The items of the collection.
@@ -68,6 +70,16 @@ class Collection {
     public function push($value)
     {
         $this->items[] = $value;
+    }
+
+    /**
+     * Count the number of items in the collection.
+     *
+     * @return int
+     */
+    public function count()
+    {
+        return count($this->items);
     }
 
 } 
