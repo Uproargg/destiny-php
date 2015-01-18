@@ -42,6 +42,8 @@ class ClientTest extends TestCase {
     public function testAutomaticCharacterFetching()
     {
         $this->assertInstanceOf('Destiny\Game\CharacterCollection', $this->player->characters);
+
+        $this->assertInstanceOf('Destiny\Game\Character', $this->player->characters->first());
     }
 
     /**
