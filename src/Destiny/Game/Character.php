@@ -39,8 +39,6 @@ class Character {
             {
                 return $this->resolveKey($key, $value);
             }
-
-            return $value;
         }
 
         return null;
