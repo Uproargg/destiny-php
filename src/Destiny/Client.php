@@ -39,6 +39,27 @@ class Client extends Http {
     }
 
     /**
+     * Check whether a player exists.
+     *
+     * @param $username
+     * @param $platform
+     * @return bool
+     */
+    public function playerExists($username, $platform)
+    {
+        try
+        {
+            $this->fetchPlayer($username, $platform);
+        }
+        catch(PlayerNotFoundException $e)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * Fetch an Xbox player by username.
      *
      * @param $username

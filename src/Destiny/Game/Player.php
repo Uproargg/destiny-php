@@ -91,8 +91,6 @@ class Player extends Http {
 
         if ($this->membershipType == 2) {
             $type = 'TigerPSN';
-
-            return $type;
         }
 
         return $type;
