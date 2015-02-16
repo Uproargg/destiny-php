@@ -68,7 +68,7 @@ class Player {
      */
     protected function fetchCharacters()
     {
-        $json = $this->requestJson('http://www.bungie.net/Platform/Destiny/' . $this->makeTypeWord() . '/Account/' . $this->membershipId);
+        $json = $this->requestJson('http://www.bungie.net/Platform/Destiny/' . static::makeTypeWord($this->membershipType) . '/Account/' . $this->membershipId);
 
         if(count($json['Response']['data']['characters']) < 1)
         {
@@ -81,22 +81,6 @@ class Player {
         }
 
         return new CharacterCollection($characters);
-    }
-
-    /**
-     * Make the type word from the player type.
-     *
-     * @return string
-     */
-    protected function makeTypeWord()
-    {
-        $type = 'TigerXbox';
-
-        if ($this->membershipType == 2) {
-            $type = 'TigerPSN';
-        }
-
-        return $type;
     }
 
 }

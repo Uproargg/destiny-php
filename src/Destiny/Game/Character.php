@@ -1,6 +1,11 @@
 <?php namespace Destiny\Game;
 
+use Destiny\Support\Traits\MakesApiConnections;
+use Destiny\Support\Traits\ResolvesKeysToProperties;
+
 class Character {
+
+    use MakesApiConnections, ResolvesKeysToProperties;
 
     /**
      * The character data.
@@ -10,38 +15,34 @@ class Character {
     protected $characterData;
 
     /**
+     * The character's inventory.
+     *
+     * @var \Destiny\Game\Inventory
+     */
+    public $inventory;
+
+    /**
      * Constructor
      *
      * @param $characterData
      */
     public function __construct(array $characterData)
     {
+        $this->init();
         $this->characterData = $characterData;
+        $this->inventory = $this->fetchInventory();
     }
 
     /**
-     * Resolve a key from the character info array.
+     * Fetch the character's inventory.
      *
-     * @param $key
-     * @param $array
-     * @return null
+     * @return \Destiny\Game\Inventory
      */
-    protected function resolveKey($key, $array)
+    protected function fetchInventory()
     {
-        if(array_key_exists($key, $array))
-        {
-            return $array[$key];
-        }
+        $json = $this->requestJson('http://www.bungie.net/Platform/Destiny/' . static::makeTypeWord($this->membershipType) . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Inventory');
 
-        foreach($array as $value)
-        {
-            if(is_array($value))
-            {
-                return $this->resolveKey($key, $value);
-            }
-        }
-
-        return null;
+        return new Inventory($json);
     }
 
     /**
@@ -54,4 +55,5 @@ class Character {
     {
         return $this->resolveKey($name, $this->characterData);
     }
+
 }
