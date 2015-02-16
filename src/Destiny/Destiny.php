@@ -25,7 +25,7 @@ class Destiny {
      */
     public function fetchPlayer($username, $platform)
     {
-        $json = $this->requestJson('http://www.bungie.net/Platform/Destiny/SearchDestinyPlayer/' . $platform . '/' . $username);
+        $json = $this->requestJson('/SearchDestinyPlayer/' . $platform . '/' . $username);
 
         if( ! isset($json['Response'][0]['membershipId']))
         {

@@ -1,12 +1,19 @@
 A PHP API for Destiny The Game
 ===========
 
+
+http://www.bungie.net/Platform/Destiny/Stats/ActivityHistory/1/4611686018429562661/2305843009218493070/
+
+http://www.bungie.net/Platform/Destiny/Stats/ActivityHistory/2/4611686018429149347/2305843009215132906/?page=0&count=1&definitions=true&mode=4
+
+
 [![Build Status](https://travis-ci.org/aFreshMelon/destiny-php.svg)](https://travis-ci.org/aFreshMelon/destiny-php)
 
 * [Basic Usage](#basic-usage)
 * [Documentation](#documentation)
     * [Players](#players)
     * [Characters](#characters)
+        * [Activity Data](#activity-data)
     * [Inventory](#inventory)
 
 This is an easy to use PHP API to access all sorts of information about any Destiny account. 
@@ -206,6 +213,45 @@ echo $translator->reverse($character->classHash);
 
 The character class is packed with information, perhaps one of the most important infos comes from another class that
 can be accessed from the ``inventory`` property within the Character class.
+
+### Activity Data
+
+An interface to retrieve activity data is provided out of the box. As there is lots of activity data on every single character
+it is not fetched automatically. Instead there is a function for you to easily retrieve all sorts of activity data.
+
+There are many types of activity data, so here is a list with your options for the ``fetchActivityData`` method on the Character class.
+
+| ID |                 |
+|----|-----------------|
+| 1  | None            |
+| 2  | Story           |
+| 3  | Strike          |
+| 4  | Raid            |
+| 5  | AllPvP          |
+| 6  | Patrol          |
+| 7  | AllPvE          |
+| 8  | PvPIntroduction |
+| 9  | ThreeVsThree    |
+| 10 | Control         |
+| 11 | Lockdown        |
+| 12 | Team            |
+| 13 | FreeForAll      |
+| 14 | Nightfall       |
+| 15 | Heroic          |
+| 16 | AllStrikes      |
+
+You can then use the method to retrieve a response array directly from Bungie and do whatever like with it. This let's you determine raid completions,
+story completions, nightfall completions and all sorts of PvP data too. It's super useful if you want to collect some stats.
+
+```php
+$character = $player->characters->first();
+
+$raidData = $character->fetchActivityData(4);
+// Returns an array containing stats about past raids
+
+$controlData = $character->fetchActivityData(10);
+// Returns an array containing stats about past Control matches
+```
 
 ## Inventory
 

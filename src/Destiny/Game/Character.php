@@ -40,9 +40,22 @@ class Character {
      */
     protected function fetchInventory()
     {
-        $json = $this->requestJson('http://www.bungie.net/Platform/Destiny/' . static::makeTypeWord($this->membershipType) . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Inventory');
+        $json = $this->requestJson('/' . static::makeTypeWord($this->membershipType) . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Inventory');
 
         return new Inventory($json);
+    }
+
+    /**
+     * Fetch the character's activity data.
+     *
+     * @param $activityType
+     * @return array
+     */
+    public function fetchActivityData($activityType)
+    {
+        $json = $this->requestJson('/Stats/ActivityHistory/' . $this->membershipType . '/' . $this->membershipId . '/' . $this->characterId . '/?mode=' . $activityType . '&definitions=true');
+
+        return $json;
     }
 
     /**

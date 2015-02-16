@@ -17,7 +17,7 @@ trait MakesApiConnections {
      */
     protected function init()
     {
-        $this->http = new Client;
+        $this->http = new Client(['base_url' => 'http://www.bungie.net/Platform/Destiny']);
     }
 
     /**
