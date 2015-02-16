@@ -1,9 +1,9 @@
-<?php namespace Destiny\Support;
+<?php namespace Destiny\Support\Traits;
 
 use GuzzleHttp\Client;
 use Destiny\Support\Exceptions\BungieUnavailableException;
 
-class Http {
+trait MakesApiConnections {
 
     /**
      * Guzzle instance.
@@ -13,9 +13,9 @@ class Http {
     protected $http;
 
     /**
-     * Constructor
+     * Initialize the trait.
      */
-    public function __construct()
+    protected function init()
     {
         $this->http = new Client;
     }
@@ -24,7 +24,7 @@ class Http {
      * Request a URL an throw an exception if there is no response, otherwise handle JSON.
      *
      * @param $url
-     * @throws \Destiny\Support\BungieUnavailableException
+     * @throws \Destiny\Support\Exceptions\BungieUnavailableException
      * @return array
      */
     protected function requestJson($url)

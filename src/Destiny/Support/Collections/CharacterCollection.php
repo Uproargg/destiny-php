@@ -1,6 +1,4 @@
-<?php namespace Destiny\Game;
-
-use Destiny\Support\Collection;
+<?php namespace Destiny\Support\Collections;
 
 class CharacterCollection extends Collection {
 

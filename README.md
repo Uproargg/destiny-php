@@ -18,10 +18,10 @@ Install the latest version with `composer require afreshmelon/destiny dev-master
 
 require 'vendor/autoload.php';
 
-use Destiny\Client;
+use Destiny\Destiny;
 
 // Create a new instance of the client
-$destiny = new Client;
+$destiny = new Destiny;
 
 // Find a player
 $player = $destiny->fetchXboxPlayer('aFreshMelon');

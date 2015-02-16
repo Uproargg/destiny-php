@@ -1,4 +1,4 @@
-<?php namespace Destiny\Game;
+<?php namespace Destiny\Support\Collections;
 
 use Destiny\TestCase;
 
@@ -17,7 +17,7 @@ class CharacterCollectionTest extends TestCase {
      */
     public function testGetWarlocks()
     {
-        $this->assertInstanceOf('Destiny\Game\CharacterCollection', $this->player->characters->getWarlocks());
+        $this->assertInstanceOf('Destiny\Support\Collections\CharacterCollection', $this->player->characters->getWarlocks());
     }
 
     /**
@@ -25,7 +25,7 @@ class CharacterCollectionTest extends TestCase {
      */
     public function testGetTitans()
     {
-        $this->assertInstanceOf('Destiny\Game\CharacterCollection', $this->player->characters->getTitans());
+        $this->assertInstanceOf('Destiny\Support\Collections\CharacterCollection', $this->player->characters->getTitans());
 
 
     }
@@ -35,7 +35,7 @@ class CharacterCollectionTest extends TestCase {
      */
     public function testGetHunters()
     {
-        $this->assertInstanceOf('Destiny\Game\CharacterCollection', $this->player->characters->getHunters());
+        $this->assertInstanceOf('Destiny\Support\Collections\CharacterCollection', $this->player->characters->getHunters());
     }
 
     /**

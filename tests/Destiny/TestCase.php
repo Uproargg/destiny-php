@@ -5,7 +5,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
     /**
      * A client instance to use in tests.
      *
-     * @var \Destiny\Client
+     * @var \Destiny\Destiny
      */
 
     // TODO: Make all tests work offline (Guzzle mocking, Response forging)
@@ -23,7 +23,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
      */
     public function __construct()
     {
-        $this->destiny = new Client;
+        $this->destiny = new Destiny;
 
         $this->player = $this->destiny->fetchPlayer('aFreshMelon', 1);
     }

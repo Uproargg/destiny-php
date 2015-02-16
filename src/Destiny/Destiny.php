@@ -1,17 +1,19 @@
 <?php namespace Destiny;
 
-use Destiny\Support\Http;
+use Destiny\Support\Traits\MakesApiConnections;
 use Destiny\Support\Exceptions\PlayerNotFoundException;
 use Destiny\Game\Player;
 
-class Client extends Http {
+class Destiny {
+
+    use MakesApiConnections;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        parent::__construct();
+        $this->init();
     }
 
     /**

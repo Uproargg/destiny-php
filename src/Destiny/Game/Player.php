@@ -1,9 +1,12 @@
 <?php namespace Destiny\Game;
 
-use Destiny\Support\Http;
+use Destiny\Support\Traits\MakesApiConnections;
+use Destiny\Support\Collections\CharacterCollection;
 use Destiny\Support\Exceptions\NoCharactersFoundException;
 
-class Player extends Http {
+class Player {
+
+    use MakesApiConnections;
 
     /**
      * The players icon path.
@@ -50,7 +53,7 @@ class Player extends Http {
      */
     public function __construct($iconPath, $membershipType, $membershipId, $displayName)
     {
-        parent::__construct();
+        $this->init();
         $this->iconPath = $iconPath;
         $this->membershipType = $membershipType;
         $this->membershipId = $membershipId;

@@ -1,4 +1,4 @@
-<?php namespace Destiny\Support;
+<?php namespace Destiny\Support\Collections;
 
 use Countable;
 
