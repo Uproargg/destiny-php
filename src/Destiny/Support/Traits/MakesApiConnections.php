@@ -38,21 +38,4 @@ trait MakesApiConnections {
         return $response->json();
     }
 
-    /**
-     * Make the type word from the player type.
-     *
-     * @param $membershipType
-     * @return string
-     */
-    public static function makeTypeWord($membershipType)
-    {
-        $type = 'TigerXbox';
-
-        if ($membershipType == 2) {
-            $type = 'TigerPSN';
-        }
-
-        return $type;
-    }
-
 } 

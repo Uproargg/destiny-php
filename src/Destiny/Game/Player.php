@@ -68,7 +68,7 @@ class Player {
      */
     protected function fetchCharacters()
     {
-        $json = $this->requestJson('http://www.bungie.net/Platform/Destiny/' . static::makeTypeWord($this->membershipType) . '/Account/' . $this->membershipId);
+        $json = $this->requestJson('/' . $this->membershipType . '/Account/' . $this->membershipId);
 
         if(count($json['Response']['data']['characters']) < 1)
         {
@@ -81,6 +81,18 @@ class Player {
         }
 
         return new CharacterCollection($characters);
+    }
+
+    /**
+     * Fetch a player's grimoire data.
+     *
+     * @return array
+     */
+    public function fetchGrimoireData()
+    {
+        $json = $this->requestJson('/Vanguard/Grimoire/' . $this->membershipType . '/' . $this->membershipId . '/?definitions=true');
+
+        return $json;
     }
 
 }

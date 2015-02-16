@@ -1,17 +1,12 @@
 A PHP API for Destiny The Game
 ===========
 
-
-http://www.bungie.net/Platform/Destiny/Stats/ActivityHistory/1/4611686018429562661/2305843009218493070/
-
-http://www.bungie.net/Platform/Destiny/Stats/ActivityHistory/2/4611686018429149347/2305843009215132906/?page=0&count=1&definitions=true&mode=4
-
-
 [![Build Status](https://travis-ci.org/aFreshMelon/destiny-php.svg)](https://travis-ci.org/aFreshMelon/destiny-php)
 
 * [Basic Usage](#basic-usage)
 * [Documentation](#documentation)
     * [Players](#players)
+        * [Grimoire Data](#grimoire-data)
     * [Characters](#characters)
         * [Activity Data](#activity-data)
     * [Inventory](#inventory)
@@ -104,18 +99,25 @@ echo $player->displayName;
 // Returns a string containing the display name of the player
 ```
 
-The class also has one function available that will let you translate the membership type from a numeric value
-to a string value. This string value is used internally to make following requests to Bungie and is likely of no use
-to most people, but it's there.
-
-```php
-echo Player::makeTypeWord($player->membershipType);
-// Static function, returns a string representation of the platform preceeded by "Tiger"
-```
-
 The Player class has one more property called ``characters``. Once initialized the Player class will automatically
 fetch all characters associated with it from Bungie and store them as a ``\Destiny\Support\Collections\CharacterCollection``
 in the ``characters`` property. The functionality of this is explained in the next section.
+
+### Grimoire Data
+
+You can easily access a player's Grimoire score using the ``grimoireScore`` property on an character, but sometimes you
+might want some more detail about a player's Grimoire data.
+
+There is a method to easily let you retrieve an array of a player's grimoire breakdown with card descriptions and all the
+data available about the cards, including graphics paths to bungie.net.
+
+The Grimoire data is very heavy and fairly situational, so it will not be requested by default, instead you can request
+it at your own will using the ``fetchGrimoireData`` method which will return a massive array of cards and info.
+
+```php
+$grimoireData = $player->fetchGrimoireData();
+// Returns an array containing all Grimoire card infos available
+```
 
 ## Characters
 
@@ -171,8 +173,7 @@ $numberOfCharacters = $characters->count();
 ```
 
 Once you retrieved a character from the collection you will be working with an object of type \Destiny\Game\Character
-which does not really have any major methods. It also has the static ``makeTypeWord`` method, which again, is mostly for
-internal use.
+which does not really have any major methods.
 
 The character class does however allow accessing all of the characters important data. It will be expanded in the the future,
 but right now this includes all general data as well as the [Inventory](#inventory).
