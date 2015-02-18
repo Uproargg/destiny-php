@@ -136,11 +136,11 @@ $lastPlayedWarlock = $characters->firstWarlock(); // Destiny\Game\Character
 
 You can of course, in the very same way, retrieve all Warlocks, Titans or Hunters at once, or even all characters in the
 collection. The methods for this are pretty straightforward, they are ``getWarlocks``, ``getTitans`` and ``getWarlocks``.
-These will all return a new CharacterCollection containing only the characters of the specific class. If you want all characters
+These will all return an array containing only the characters of the specific class. If you want all characters
 in the collection you would use the ``all`` method, which will return an array of all the characters in the collection.
 
 ```php
-$allWarlocks = $characters->getWarlocks(); // Destiny\Support\Collections\CharacterCollection
+$allWarlocks = $characters->getWarlocks(); // array
 
 $allCharacters = $characters->all(); // array
 ```
