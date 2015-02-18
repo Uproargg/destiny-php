@@ -1,45 +1,60 @@
 <?php namespace Destiny\Support\Collections;
 
+use Destiny\Support\Translators\HashTranslator;
+
 class CharacterCollection extends Collection {
+
+    /**
+     * An instance of the HashTranslator.
+     *
+     * @var \Destiny\Support\Translators\HashTranslator
+     */
+    protected $translator;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->translator = new HashTranslator;
+    }
 
     /**
      * Get characters by class hash.
      *
      * @param $classHash
-     * @return \Destiny\Game\CharacterCollection|null
+     * @return array|null
      */
     public function getByClassHash($classHash)
     {
-        $characters = new CharacterCollection([]);
+        $characters = [];
 
         foreach($this->all() as $key => $character)
         {
             if($character->classHash == $classHash)
             {
-                $characters->push($this->get($key));
+                $characters[] = $this->get($key);
             }
         }
 
-        return $characters->count() > 0 ? $characters : null ;
+        return count($characters) > 0 ? $characters : null ;
     }
 
     /**
      * Get characters by class name.
      *
      * @param $className
-     * @return \Destiny\Game\CharacterCollection|null
+     * @return array|null
      */
     public function getByClassName($className)
     {
-        $translator = new HashTranslator;
-
-        return $this->getByClassHash($translator->reverse($className));
+        return $this->getByClassHash($this->translator->reverse($className));
     }
 
     /**
      * Get warlocks in the collection.
      *
-     * @return \Destiny\Game\CharacterCollection|null
+     * @return array|null
      */
     public function getWarlocks()
     {
@@ -49,7 +64,7 @@ class CharacterCollection extends Collection {
     /**
      * Get titans in the collection.
      *
-     * @return \Destiny\Game\CharacterCollection|null
+     * @return array|null
      */
     public function getTitans()
     {
@@ -59,7 +74,7 @@ class CharacterCollection extends Collection {
     /**
      * Get hunters in the collection.
      *
-     * @return \Destiny\Game\CharacterCollection|null
+     * @return array|null
      */
     public function getHunters()
     {
@@ -93,9 +108,7 @@ class CharacterCollection extends Collection {
      */
     public function firstByClassName($className)
     {
-        $translator = new HashTranslator;
-
-        return $this->firstByClassHash($translator->reverse($className));
+        return $this->firstByClassHash($this->translator->reverse($className));
     }
 
     /**
