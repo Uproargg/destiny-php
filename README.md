@@ -51,9 +51,9 @@ To find a player on any Xbox console just use the ``fetchXboxPlayer`` method. Th
 ``fetchPsnPlayer`` if you wanted to find players from any PlayStation console.
 
 ```php
-$xboxPlayer = $destiny->fetchXboxPlayer('Player Name'); // \Destiny\Game\Player
+$xboxPlayer = $destiny->fetchXboxPlayer('Player Name'); // Destiny\Game\Player
 
-$psnPlayer = $destiny->fetchPsnPlayer('Player_Name'); // \Destiny\Game\Player
+$psnPlayer = $destiny->fetchPsnPlayer('Player_Name'); // Destiny\Game\Player
 ```
 
 If you would maybe like user selected search system, there is a method that allows you to dynmaically
@@ -64,7 +64,7 @@ Platforms are identified with a numeric value. The number for Xbox is 1 and the 
 This is the case throughout the entire system.
 
 ```php
-$anyPlayer = $destiny->fetchPlayer('PlayerName', 2); // \Destiny\Game\Player
+$anyPlayer = $destiny->fetchPlayer('PlayerName', 2); // Destiny\Game\Player
 ```
 
 *If any of these fail this exception will be thrown: ``\Destiny\Support\Exceptions\PlayerNotFoundException``.*
@@ -127,11 +127,11 @@ with for example you would use the ``first`` method. You can also use the ``firs
 which will all return a single Character of the obvious class. This is especially useful if you have guardians of different types.
 
 ```php
-$characters = $player->characters; // ``\Destiny\Support\Collections\CharacterCollection``
+$characters = $player->characters; // Destiny\Support\Collections\CharacterCollection
 
-$lastPlayedCharacter = $characters->first(); // \Destiny\Game\Character
+$lastPlayedCharacter = $characters->first(); // Destiny\Game\Character
 
-$lastPlayedWarlock = $characters->firstWarlock(); // \Destiny\Game\Character
+$lastPlayedWarlock = $characters->firstWarlock(); // Destiny\Game\Character
 ```
 
 You can of course, in the very same way, retrieve all Warlocks, Titans or Hunters at once, or even all characters in the
@@ -140,7 +140,7 @@ These will all return a new CharacterCollection containing only the characters o
 in the collection you would use the ``all`` method, which will return an array of all the characters in the collection.
 
 ```php
-$allWarlocks = $characters->getWarlocks(); // \Destiny\Support\Collections\CharacterCollection
+$allWarlocks = $characters->getWarlocks(); // Destiny\Support\Collections\CharacterCollection
 
 $allCharacters = $characters->all(); // array
 ```
@@ -150,9 +150,9 @@ in the collection using the ``get`` method. Additionally you can count how many 
 ``count`` method.
 
 ```php
-$lastCharacters = $characters->last(); // \Destiny\Game\Character
+$lastCharacters = $characters->last(); // Destiny\Game\Character
 
-$allCharacters = $characters->get(2); // \Destiny\Game\Character
+$allCharacters = $characters->get(2); // Destiny\Game\Character
 
 $numberOfCharacters = $characters->count(); // integer
 ```
@@ -240,13 +240,13 @@ the items using methods of the Inventory class. There are a lot of pretty clearl
 for. The naming is so simple, I will only list a few and you can figure out the rest or dig in the code.
 
 ```php
-$inventory = $character->inventory; // \Destiny\Game\Inventory
+$inventory = $character->inventory; // Destiny\Game\Inventory
 
-$primaryWeapon = $inventory->primary(); // \Destiny\Game\Item
+$primaryWeapon = $inventory->primary(); // Destiny\Game\Item
 
-$subclass = $inventory->subclass(); // \Destiny\Game\Item
+$subclass = $inventory->subclass(); // Destiny\Game\Item
 
-$classItem = $inventory->classItem(); // \Destiny\Game\Item
+$classItem = $inventory->classItem(); // Destiny\Game\Item
 ```
 
 I will reiterate, you can always look in the code if you can't find what you're looking for.
