@@ -40,7 +40,7 @@ class Character {
      */
     protected function fetchInventory()
     {
-        $json = $this->requestJson('/' . $this->membershipType . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Inventory');
+        $json = $this->requestJson('/' . $this->membershipType . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Inventory?definitions=true');
 
         return new Inventory($json);
     }
