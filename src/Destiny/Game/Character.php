@@ -40,7 +40,7 @@ class Character {
      */
     protected function fetchInventory()
     {
-        $json = $this->requestJson('/' . $this->membershipType . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Inventory?definitions=true');
+        $json = $this->requestJson('/Platform/Destiny/' . $this->membershipType . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Inventory?definitions=true');
 
         return new Inventory($json);
     }
@@ -53,7 +53,7 @@ class Character {
      */
     public function fetchActivityData($activityType)
     {
-        $json = $this->requestJson('/Stats/ActivityHistory/' . $this->membershipType . '/' . $this->membershipId . '/' . $this->characterId . '/?mode=' . $activityType . '&definitions=true');
+        $json = $this->requestJson('/Platform/Destiny/Stats/ActivityHistory/' . $this->membershipType . '/' . $this->membershipId . '/' . $this->characterId . '/?mode=' . $activityType . '&definitions=true');
 
         return $json;
     }

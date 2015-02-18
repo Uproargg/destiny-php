@@ -68,7 +68,7 @@ class Player {
      */
     protected function fetchCharacters()
     {
-        $json = $this->requestJson('/' . $this->membershipType . '/Account/' . $this->membershipId);
+        $json = $this->requestJson('/Platform/Destiny/' . $this->membershipType . '/Account/' . $this->membershipId);
 
         if(count($json['Response']['data']['characters']) < 1)
         {
@@ -90,7 +90,7 @@ class Player {
      */
     public function fetchGrimoireData()
     {
-        $json = $this->requestJson('/Vanguard/Grimoire/' . $this->membershipType . '/' . $this->membershipId . '/?definitions=true');
+        $json = $this->requestJson('/Platform/Destiny/Vanguard/Grimoire/' . $this->membershipType . '/' . $this->membershipId . '/?definitions=true');
 
         return $json;
     }
