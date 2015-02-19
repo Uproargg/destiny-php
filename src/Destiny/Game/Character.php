@@ -2,6 +2,7 @@
 
 use Destiny\Support\Traits\MakesApiConnections;
 use Destiny\Support\Traits\ResolvesKeysToProperties;
+use GuzzleHttp\Client;
 
 class Character {
 
@@ -24,11 +25,12 @@ class Character {
     /**
      * Constructor
      *
-     * @param $characterData
+     * @param array $characterData
+     * @param \GuzzleHttp\Client $http
      */
-    public function __construct(array $characterData)
+    public function __construct(array $characterData, Client $http)
     {
-        $this->init();
+        $this->http = $http;
         $this->characterData = $characterData;
         $this->inventory = $this->fetchInventory();
     }
@@ -40,7 +42,7 @@ class Character {
      */
     protected function fetchInventory()
     {
-        $json = $this->requestJson('/Platform/Destiny/' . $this->membershipType . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Inventory?definitions=true');
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/' . $this->membershipType . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Inventory?definitions=true');
 
         return new Inventory($json);
     }
@@ -53,7 +55,7 @@ class Character {
      */
     public function fetchActivityData($activityType)
     {
-        $json = $this->requestJson('/Platform/Destiny/Stats/ActivityHistory/' . $this->membershipType . '/' . $this->membershipId . '/' . $this->characterId . '/?mode=' . $activityType . '&definitions=true');
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/ActivityHistory/' . $this->membershipType . '/' . $this->membershipId . '/' . $this->characterId . '/?mode=' . $activityType . '&definitions=true');
 
         return $json;
     }

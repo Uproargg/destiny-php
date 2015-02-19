@@ -1,0 +1,1 @@
+{"Response":[{"iconPath":"/img/theme/destiny/icons/icon_xbl.png","membershipType":1,"membershipId":"4611686018429562661","displayName":"aFreshMelon"}],"ErrorCode":1,"ThrottleSeconds":0,"ErrorStatus":"Success","Message":"Ok","MessageData":{}}

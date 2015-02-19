@@ -17,6 +17,13 @@ class Inventory {
     protected $inventoryDefinitions;
 
     /**
+     * Currencies of the inventory.
+     *
+     * @var array
+     */
+    protected $inventoryCurrencies;
+
+    /**
      * Constructor
      *
      * @param array $inventoryData
@@ -25,6 +32,7 @@ class Inventory {
     {
         $this->inventoryEquippable = $inventoryData['Response']['data']['buckets']['Equippable'];
         $this->inventoryDefinitions = $inventoryData['Response']['definitions']['items'];
+        $this->inventoryCurrencies = $inventoryData['Response']['data']['currencies'];
     }
 
     /**
@@ -190,7 +198,7 @@ class Inventory {
      */
     public function glimmer()
     {
-        return $this->inventoryData['Response']['data']['currencies'][0]['value'];
+        return $this->inventoryCurrencies[0]['value'];
     }
 
     /**
@@ -200,7 +208,7 @@ class Inventory {
      */
     public function crucibleMarks()
     {
-        return $this->inventoryData['Response']['data']['currencies'][1]['value'];
+        return $this->inventoryCurrencies[1]['value'];
     }
 
     /**
@@ -210,7 +218,7 @@ class Inventory {
      */
     public function vanguardMarks()
     {
-        return $this->inventoryData['Response']['data']['currencies'][2]['value'];
+        return $this->inventoryCurrencies[2]['value'];
     }
 
 } 

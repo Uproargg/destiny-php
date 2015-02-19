@@ -6,19 +6,11 @@ use Destiny\Support\Exceptions\BungieUnavailableException;
 trait MakesApiConnections {
 
     /**
-     * Guzzle instance.
+     * A Guzzle client instance.
      *
      * @var \GuzzleHttp\Client
      */
     protected $http;
-
-    /**
-     * Initialize the trait.
-     */
-    protected function init()
-    {
-        $this->http = new Client(['base_url' => 'http://www.bungie.net']);
-    }
 
     /**
      * Request a URL an throw an exception if there is no response, otherwise handle JSON.

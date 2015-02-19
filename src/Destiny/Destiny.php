@@ -1,6 +1,7 @@
 <?php namespace Destiny;
 
 use Destiny\Support\Traits\MakesApiConnections;
+use GuzzleHttp\Client;
 use Destiny\Support\Exceptions\PlayerNotFoundException;
 use Destiny\Game\Player;
 
@@ -10,10 +11,17 @@ class Destiny {
 
     /**
      * Constructor
+     *
+     * @param \GuzzleHttp\Client $http
      */
-    public function __construct()
+    public function __construct(Client $http = null)
     {
-        $this->init();
+        $this->http = new Client;
+
+        if( ! is_null($http))
+        {
+            $this->http = $http;
+        }
     }
 
     /**
@@ -25,7 +33,7 @@ class Destiny {
      */
     public function fetchPlayer($username, $platform)
     {
-        $json = $this->requestJson('/Platform/Destiny/SearchDestinyPlayer/' . $platform . '/' . $username);
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/SearchDestinyPlayer/' . $platform . '/' . $username);
 
         if( ! isset($json['Response'][0]['membershipId']))
         {
@@ -36,7 +44,8 @@ class Destiny {
             $json['Response'][0]['iconPath'],
             $json['Response'][0]['membershipType'],
             $json['Response'][0]['membershipId'],
-            $json['Response'][0]['displayName']
+            $json['Response'][0]['displayName'],
+            $this->http
         );
     }
 

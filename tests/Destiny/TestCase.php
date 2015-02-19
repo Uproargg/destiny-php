@@ -1,31 +1,55 @@
 <?php namespace Destiny;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Stream\Stream;
+use GuzzleHttp\Subscriber\Mock;
+
 class TestCase extends \PHPUnit_Framework_TestCase {
 
     /**
-     * A client instance to use in tests.
+     * Create an instance of the Guzzle client for tests.
      *
-     * @var \Destiny\Destiny
+     * @return \GuzzleHttp\Client
      */
-
-    // TODO: Make all tests work offline (Guzzle mocking, Response forging)
-    public $destiny;
-
-    /**
-     * A player to test on.
-     *
-     * @var \Destiny\Game\Player
-     */
-    public $player;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
+    protected function http()
     {
-        $this->destiny = new Destiny;
+        $client = new Client;
 
-        $this->player = $this->destiny->fetchPlayer('aFreshMelon', 1);
+        $mock = new Mock([
+            $this->makeResponse('player'),
+            $this->makeResponse('characters'),
+            $this->makeResponse('inventory1'),
+            $this->makeResponse('inventory2'),
+            $this->makeResponse('inventory3'),
+            $this->makeResponse('grimoire'),
+            $this->makeResponse('activities'),
+        ]);
+
+        $client->getEmitter()->attach($mock);
+
+        return $client;
+    }
+
+    /**
+     * Create a Response object from a stub.
+     *
+     * @param $stub
+     * @return \GuzzleHttp\Message\Response
+     */
+    private function makeResponse($stub)
+    {
+        $response = new Response(200);
+
+        $response->setHeader('Content-Type', 'application/json');
+
+        $responseBody = Stream::factory(fopen(
+                './tests/Destiny/stubs/' . $stub . '.txt', 'r+')
+        );
+
+        $response->setBody($responseBody);
+
+        return $response;
     }
 
 }

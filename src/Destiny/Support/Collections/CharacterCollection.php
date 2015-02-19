@@ -13,9 +13,12 @@ class CharacterCollection extends Collection {
 
     /**
      * Constructor
+     *
+     * @param array $items
      */
-    public function __construct()
+    public function __construct(array $items)
     {
+        $this->items = $items;
         $this->translator = new HashTranslator;
     }
 
