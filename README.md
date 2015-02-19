@@ -16,7 +16,7 @@ This includes characters equipment, progression and all sorts of other informati
 
 # Basic Usage
 
-Install the latest version with `composer require afreshmelon/destiny dev-master`
+Install the latest stable version with `composer require afreshmelon/destiny`
 
 ```php
 <?php
@@ -268,5 +268,3 @@ echo $item->itemName; // string
 
 echo $item->itemTypeName; // string
 ```
-
-**This documentation is unfinished and will be expanded with the project.**
