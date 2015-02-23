@@ -42,5 +42,24 @@ class InventoryTest extends TestCase {
         $this->assertInternalType('int', $inventory->vanguardMarks());
     }
 
+    /**
+     * Test the weapons and armor methods.
+     */
+    public function testCollectionMethods()
+    {
+        $destiny = new Destiny($this->http());
+
+        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+
+        $character = $player->characters->first();
+
+        $inventory = $character->inventory;
+
+        $this->assertInternalType('array', $inventory->weapons());
+        $this->assertInternalType('array', $inventory->armor());
+        $this->assertCount(3, $inventory->weapons());
+        $this->assertCount(4, $inventory->armor());
+    }
+
 }
  
