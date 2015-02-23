@@ -116,7 +116,7 @@ class Inventory {
      *
      * @return \Destiny\Game\Item
      */
-    public function pants()
+    public function chest()
     {
         return $this->makeItem(6);
     }
@@ -219,6 +219,35 @@ class Inventory {
     public function vanguardMarks()
     {
         return $this->inventoryCurrencies[2]['value'];
+    }
+
+    /**
+     * An array of all the weapons on a character.
+     *
+     * @return array
+     */
+    public function weapons()
+    {
+        return [
+            $this->primary(),
+            $this->secondary(),
+            $this->heavy()
+        ];
+    }
+
+    /**
+     * An array of all the armor on a character.
+     *
+     * @return array
+     */
+    public function armor()
+    {
+        return [
+            $this->helmet(),
+            $this->arms(),
+            $this->chest(),
+            $this->boots()
+        ];
     }
 
 } 
