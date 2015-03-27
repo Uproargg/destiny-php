@@ -8,7 +8,7 @@ A PHP API for Destiny The Game
     * [Players](#players)
         * [Grimoire Data](#grimoire-data)
     * [Characters](#characters)
-    	* [Progression / Vendors](#progression-vendors)
+    	* [Progression / Vendors](#progression--vendors)
         * [Activity Data](#activity-data)
         * [Post Game Carnage Reports](#post-game-carnage-reports)
     * [Inventory](#inventory)
