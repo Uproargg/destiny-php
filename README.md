@@ -16,7 +16,7 @@ A PHP API for Destiny The Game
 This is an easy to use PHP API to access all sorts of information about any Destiny account. 
 This includes characters equipment, progression and all sorts of other information.
 
-# Basic Usage
+# Basic Usage 
 
 Install the latest stable version with `composer require afreshmelon/destiny`
 
