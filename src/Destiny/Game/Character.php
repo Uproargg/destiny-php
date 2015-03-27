@@ -23,6 +23,13 @@ class Character {
     public $inventory;
 
     /**
+     * The character's progression.
+     *
+     * @var array
+     */
+    public $progression;
+
+    /**
      * Constructor
      *
      * @param array $characterData
@@ -33,6 +40,7 @@ class Character {
         $this->http = $http;
         $this->characterData = $characterData;
         $this->inventory = $this->fetchInventory();
+        $this->progression = $this->fetchProgression();
     }
 
     /**
@@ -48,14 +56,41 @@ class Character {
     }
 
     /**
+     * Fetch the character's progression data.
+     *
+     * @return array
+     */
+    protected function fetchProgression()
+    {
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/' . $this->membershipType . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Progression?definitions=true');
+
+        return $json;
+    }
+
+    /**
      * Fetch the character's activity data.
      *
      * @param $activityType
+     * @param $definitions
      * @return array
      */
-    public function fetchActivityData($activityType)
+    public function fetchActivityData($activityType, $definitions = true)
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/ActivityHistory/' . $this->membershipType . '/' . $this->membershipId . '/' . $this->characterId . '/?mode=' . $activityType . '&definitions=true');
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/ActivityHistory/' . $this->membershipType . '/' . $this->membershipId . '/' . $this->characterId . '/?mode=' . $activityType . '&definitions=' . json_encode($definitions));
+
+        return $json;
+    }
+
+    /**
+     * Fetch the post game carnage report for an activity.
+     *
+     * @param $activityId
+     * @param $definitions
+     * @return array
+     */
+    public function fetchPostGameCarnageReport($activityId, $definitions = true)
+    {
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/PostGameCarnageReport/' . $activityType . '&definitions=' . json_encode($definitions));
 
         return $json;
     }

@@ -6,7 +6,7 @@ use Destiny\Destiny;
 class CharacterTest extends TestCase {
 
     /**
-     * Test the fetchInventoryMethod.
+     * Test the fetchInventory method.
      */
     public function testFetchInventory()
     {
@@ -17,6 +17,20 @@ class CharacterTest extends TestCase {
         $character = $player->characters->first();
 
         $this->assertInstanceOf('Destiny\Game\Inventory', $character->inventory);
+    }
+
+    /**
+     * Test the fetchProgression method.
+     */
+    public function testFetchProgression()
+    {
+        $destiny = new Destiny($this->http());
+
+        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+
+        $character = $player->characters->first();
+
+        $this->assertInternalType('array', $character->progression);
     }
 
     /**
@@ -36,6 +50,27 @@ class CharacterTest extends TestCase {
 
         $this->assertInternalType('array', $activityData);
         $this->assertArrayHasKey('activities', $activityData['Response']['data']);
+    }
+
+    /**
+     * Test the fetchPostGameCarnageReport method.
+     */
+    public function testFetchPostGameCarnageReport()
+    {
+        $destiny = new Destiny($this->http());
+
+        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+
+        $character = $player->characters->first();
+
+        $player->fetchGrimoireData(); // Working this off the Subscriber queue
+
+        $character->fetchActivityData(4); // Working this off the Subscriber queue
+
+        $pgcr = $character->fetchPostGameCarnageReport('1852910870');
+
+        $this->assertInternalType('array', $pgcr);
+        $this->assertArrayHasKey('activityDetails', $pgcr['Response']['data']);
     }
 
     /**

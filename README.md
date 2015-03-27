@@ -8,7 +8,9 @@ A PHP API for Destiny The Game
     * [Players](#players)
         * [Grimoire Data](#grimoire-data)
     * [Characters](#characters)
+    	* [Progression / Vendors](#progression-vendors)
         * [Activity Data](#activity-data)
+        * [Post Game Carnage Reports](#post-game-carnage-reports)
     * [Inventory](#inventory)
 
 This is an easy to use PHP API to access all sorts of information about any Destiny account. 
@@ -194,6 +196,16 @@ echo $translator->reverse($character->classHash); // integer
 The character class is packed with information, perhaps one of the most important infos comes from another class that
 can be accessed from the ``inventory`` property within the Character class.
 
+### Progression / Vendors
+
+With every character the progression data is also fetched. It contains all sorts of useful information, most useful are probably the
+vendor levels and progressions that are all included with it. The progression data is stored as the response array right now - this may
+change to a wrapper class in the future.
+
+```php
+$progressionData = $character->progression; // array
+```
+
 ### Activity Data
 
 An interface to retrieve activity data is provided out of the box. As there is lots of activity data on every single character
@@ -221,13 +233,36 @@ There are many types of activity data, so here is a list with your options for t
 | 16 | AllStrikes      |
 
 You can then use the method to retrieve a response array directly from Bungie and do whatever like with it. This let's you determine raid completions,
-story completions, nightfall completions and all sorts of PvP data too. It's super useful if you want to collect some stats.
+story completions, nightfall completions and all sorts of PvP data too. It's super useful if you want to collect some stats. These methods
+accept a second argument that will allow you to also receive definitions (name, type, all sorts of info) about every activity returned.
+It's set to true by default and it is suggested to leave it set to true.
 
 ```php
 $raidData = $character->fetchActivityData(4); // array
 
 $controlData = $character->fetchActivityData(10); // array
+
+$controlDataWithoutExtraInfo = $character->fetchActivityData(10, false); // array
 ```
+
+### Post Game Carnage Reports
+
+Post game carnage reports for crucible matches and all other activities can be received with a helper method. You will need an activityId
+which you can get from the ``fetchActivityData`` method described above. Then you may call ``fetchPostGameCarnageReport`` on it to receive
+information about total kills, deaths and other stats. This has a switch for definitions again, it's recommended to keep it on.
+
+```php
+$rumbleData = $character->fetchActivityData(13); // array
+
+$rumbleMatchId = $rumbleData['Response']['data']['activities'][0]['activityDetails']['instanceId']; // string
+
+$pgcr = $character->fetchPostGameCarnageReport($rumbleMatchId); // array
+
+$pgcrWithoutExtraInfo = $character->fetchPostGameCarnageReport($rumbleMatchId, false); // array
+```
+
+Keep in mind that the report includes closing info for every player in the activity, so you can get info about anyone who you played with
+using this report.
 
 ## Inventory
 

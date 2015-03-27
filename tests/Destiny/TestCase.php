@@ -20,10 +20,14 @@ class TestCase extends \PHPUnit_Framework_TestCase {
             $this->makeResponse('player'),
             $this->makeResponse('characters'),
             $this->makeResponse('inventory1'),
+            $this->makeResponse('progression1'),
             $this->makeResponse('inventory2'),
+            $this->makeResponse('progression2'),
             $this->makeResponse('inventory3'),
+            $this->makeResponse('progression3'),
             $this->makeResponse('grimoire'),
             $this->makeResponse('activities'),
+            $this->makeResponse('pgcr'),
         ]);
 
         $client->getEmitter()->attach($mock);
