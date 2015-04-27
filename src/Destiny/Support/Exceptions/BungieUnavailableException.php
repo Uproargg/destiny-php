@@ -1,5 +1,6 @@
 <?php namespace Destiny\Support\Exceptions;
 
-class BungieUnavailableException extends \RuntimeException {
+class BungieUnavailableException extends \RuntimeException
+{
 
 }

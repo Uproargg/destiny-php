@@ -1,9 +1,10 @@
 <?php namespace Destiny\Support\Traits;
 
-use GuzzleHttp\Client;
 use Destiny\Support\Exceptions\BungieUnavailableException;
+use GuzzleHttp\Client;
 
-trait MakesApiConnections {
+trait MakesApiConnections
+{
 
     /**
      * A Guzzle client instance.
@@ -23,11 +24,11 @@ trait MakesApiConnections {
     {
         $response = $this->http->get($url);
 
-        if ( ! $response) {
+        if (!$response) {
             throw new BungieUnavailableException;
         }
 
         return $response->json();
     }
 
-} 
+}

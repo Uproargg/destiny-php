@@ -1,9 +1,10 @@
 <?php namespace Destiny\Game;
 
-use Destiny\TestCase;
 use Destiny\Destiny;
+use Destiny\TestCase;
 
-class PlayerTest extends TestCase {
+class PlayerTest extends TestCase
+{
 
     /**
      * Test the fetchCharacters method.
@@ -34,4 +35,3 @@ class PlayerTest extends TestCase {
     }
 
 }
- 

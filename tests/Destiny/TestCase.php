@@ -5,7 +5,8 @@ use GuzzleHttp\Message\Response;
 use GuzzleHttp\Stream\Stream;
 use GuzzleHttp\Subscriber\Mock;
 
-class TestCase extends \PHPUnit_Framework_TestCase {
+class TestCase extends \PHPUnit_Framework_TestCase
+{
 
     /**
      * Create an instance of the Guzzle client for tests.
@@ -48,7 +49,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
         $response->setHeader('Content-Type', 'application/json');
 
         $responseBody = Stream::factory(fopen(
-                './tests/Destiny/stubs/' . $stub . '.txt', 'r+')
+            './tests/Destiny/stubs/' . $stub . '.txt', 'r+')
         );
 
         $response->setBody($responseBody);
@@ -57,4 +58,3 @@ class TestCase extends \PHPUnit_Framework_TestCase {
     }
 
 }
- 

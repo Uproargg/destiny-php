@@ -1,6 +1,7 @@
 <?php namespace Destiny\Game;
 
-class Inventory {
+class Inventory
+{
 
     /**
      * Items in the inventory.
@@ -231,7 +232,7 @@ class Inventory {
         return [
             $this->primary(),
             $this->secondary(),
-            $this->heavy()
+            $this->heavy(),
         ];
     }
 
@@ -246,8 +247,8 @@ class Inventory {
             $this->helmet(),
             $this->arms(),
             $this->chest(),
-            $this->boots()
+            $this->boots(),
         ];
     }
 
-} 
+}

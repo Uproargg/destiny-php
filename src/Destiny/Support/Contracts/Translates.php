@@ -1,6 +1,7 @@
 <?php namespace Destiny\Support\Contracts;
 
-interface Translates {
+interface Translates
+{
 
     /**
      * Translate the given input.

@@ -4,7 +4,8 @@ use Destiny\Support\Traits\MakesApiConnections;
 use Destiny\Support\Traits\ResolvesKeysToProperties;
 use GuzzleHttp\Client;
 
-class Character {
+class Character
+{
 
     use MakesApiConnections, ResolvesKeysToProperties;
 

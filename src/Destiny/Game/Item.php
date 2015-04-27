@@ -2,7 +2,8 @@
 
 use Destiny\Support\Traits\ResolvesKeysToProperties;
 
-class Item {
+class Item
+{
 
     use ResolvesKeysToProperties;
 
@@ -35,4 +36,4 @@ class Item {
         return $this->resolveKey($name, $this->item);
     }
 
-} 
+}

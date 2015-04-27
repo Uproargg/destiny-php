@@ -1,6 +1,7 @@
 <?php namespace Destiny\Support\Traits;
 
-trait ResolvesKeysToProperties {
+trait ResolvesKeysToProperties
+{
 
     /**
      * Resolve a key from the character info array.
@@ -11,15 +12,12 @@ trait ResolvesKeysToProperties {
      */
     protected function resolveKey($key, $array)
     {
-        if(array_key_exists($key, $array))
-        {
+        if (array_key_exists($key, $array)) {
             return $array[$key];
         }
 
-        foreach($array as $value)
-        {
-            if(is_array($value))
-            {
+        foreach ($array as $value) {
+            if (is_array($value)) {
                 return $this->resolveKey($key, $value);
             }
         }
@@ -27,4 +25,12 @@ trait ResolvesKeysToProperties {
         return null;
     }
 
-} 
+    /**
+     * Retrieve keys with a magic getter.
+     *
+     * @param $name
+     * @return null
+     */
+    abstract public function __get($name);
+
+}

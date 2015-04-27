@@ -1,11 +1,12 @@
 <?php namespace Destiny\Game;
 
+use Destiny\Support\Collections\CharacterCollection;
+use Destiny\Support\Exceptions\NoCharactersFoundException;
 use Destiny\Support\Traits\MakesApiConnections;
 use GuzzleHttp\Client;
-use Destiny\Support\Exceptions\NoCharactersFoundException;
-use Destiny\Support\Collections\CharacterCollection;
 
-class Player {
+class Player
+{
 
     use MakesApiConnections;
 
@@ -72,13 +73,11 @@ class Player {
     {
         $json = $this->requestJson('http://bungie.net/Platform/Destiny/' . $this->membershipType . '/Account/' . $this->membershipId);
 
-        if(count($json['Response']['data']['characters']) < 1)
-        {
+        if (count($json['Response']['data']['characters']) < 1) {
             throw new NoCharactersFoundException;
         }
 
-        foreach($json['Response']['data']['characters'] as $character)
-        {
+        foreach ($json['Response']['data']['characters'] as $character) {
             $characters[] = new Character($character, $this->http);
         }
 

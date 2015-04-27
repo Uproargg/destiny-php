@@ -1,9 +1,10 @@
 <?php namespace Destiny\Game;
 
-use Destiny\TestCase;
 use Destiny\Destiny;
+use Destiny\TestCase;
 
-class ItemTest extends TestCase {
+class ItemTest extends TestCase
+{
 
     /**
      * Test the magic getter.
@@ -24,4 +25,3 @@ class ItemTest extends TestCase {
     }
 
 }
- 
