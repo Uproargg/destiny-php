@@ -1,4 +1,4 @@
-PHP interface to the Destiny API
+Destiny API wrapper in PHP
 ===========
 
 [![Build Status](https://img.shields.io/travis/aFreshMelon/destiny-php.svg)](https://travis-ci.org/aFreshMelon/destiny-php) 
@@ -15,7 +15,7 @@ PHP interface to the Destiny API
         * [Post Game Carnage Reports](#post-game-carnage-reports)
     * [Inventory](#inventory)
 
-This is an easy to use PHP interface to the Destiny API by Bungie. 
+This is an easy to use PHP wrapper for the Destiny API by Bungie. 
 This includes characters equipment, progression and all sorts of other information.
 
 # Basic Usage
