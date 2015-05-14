@@ -2,7 +2,8 @@
 
 use Destiny\Support\Translators\HashTranslator;
 
-class CharacterCollection extends Collection {
+class CharacterCollection extends Collection
+{
 
     /**
      * An instance of the HashTranslator.
@@ -32,15 +33,13 @@ class CharacterCollection extends Collection {
     {
         $characters = [];
 
-        foreach($this->all() as $key => $character)
-        {
-            if($character->classHash == $classHash)
-            {
+        foreach ($this->all() as $key => $character) {
+            if ($character->classHash == $classHash) {
                 $characters[] = $this->get($key);
             }
         }
 
-        return count($characters) > 0 ? $characters : null ;
+        return count($characters) > 0 ? $characters : null;
     }
 
     /**
@@ -92,10 +91,8 @@ class CharacterCollection extends Collection {
      */
     public function firstByClassHash($classHash)
     {
-        foreach($this->all() as $key => $character)
-        {
-            if($character->classHash == $classHash)
-            {
+        foreach ($this->all() as $key => $character) {
+            if ($character->classHash == $classHash) {
                 return $this->get($key);
             }
         }
@@ -144,4 +141,4 @@ class CharacterCollection extends Collection {
         return $this->firstByClassHash(671679327);
     }
 
-} 
+}

@@ -2,7 +2,8 @@
 
 use Countable;
 
-class Collection implements Countable {
+class Collection implements Countable
+{
 
     /**
      * The items of the collection.
@@ -82,4 +83,4 @@ class Collection implements Countable {
         return count($this->items);
     }
 
-} 
+}

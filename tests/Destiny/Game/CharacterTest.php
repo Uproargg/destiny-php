@@ -31,7 +31,9 @@ class CharacterTest extends TestCase
 
         $character = $player->characters->first();
 
-        $this->assertInternalType('array', $character->progression);
+        $this->assertInstanceOf('Destiny\Support\Collections\ProgressionCollection', $character->progression);
+        $this->assertInstanceOf('Destiny\Game\Progression', $character->progression->get('cryptarch'));
+        $this->assertTrue($character->progression->get('cryptarch')->repeatLastStep);
     }
 
     /**

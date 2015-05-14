@@ -1,7 +1,9 @@
 <?php namespace Destiny\Game;
 
+use Destiny\Support\Collections\ProgressionCollection;
 use Destiny\Support\Traits\MakesApiConnections;
 use Destiny\Support\Traits\ResolvesKeysToProperties;
+use Destiny\Support\Translators\ProgressionTranslator;
 use GuzzleHttp\Client;
 
 class Character
@@ -26,7 +28,7 @@ class Character
     /**
      * The character's progression.
      *
-     * @var array
+     * @var \Destiny\Support\Collections\ProgressionCollection
      */
     public $progression;
 
@@ -65,7 +67,19 @@ class Character
     {
         $json = $this->requestJson('http://bungie.net/Platform/Destiny/' . $this->membershipType . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Progression?definitions=true');
 
-        return $json;
+        $translator = new ProgressionTranslator;
+
+        foreach ($json['Response']['data']['progressions'] as $progression) {
+            $definition = $json['Response']['definitions']['progressions'][$progression['progressionHash']];
+
+            $progressionData = array_merge($progression, $definition);
+
+            $key = $translator->reverse($definition['name']);
+
+            $progressions[$key] = new Progression($progressionData);
+        }
+
+        return new ProgressionCollection($progressions);
     }
 
     /**
