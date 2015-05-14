@@ -201,12 +201,83 @@ can be accessed from the ``inventory`` property within the Character class.
 #### Progression / Vendors
 
 With every character the progression data is also fetched. It contains all sorts of useful information, most useful are probably the
-vendor levels and progressions that are all included with it. The progression data is stored as the response array right now - this may
-change to a wrapper class in the future.
+vendor levels and progressions that are all included with it. Every progression type is stored as an object and they all contain unique information. The following progressions are available:
+
+| Key to retrieve                | Description                               |
+|--------------------------------|-------------------------------------------|
+| ban_idle                       | ban progression for idling                |
+| ban_quit                       | Ban progression for quits                 |
+| base_item_level                | Base item level                           |
+| character_display_xp           | Character display XP                      |
+| character_level                | Character level                           |
+| character_prestige             | Character prestige                        |
+| death_penalty                  | Death Penalty                             |
+| chests_cosmodrome              | Chests on Earth                           |
+| chests_mars                    | Chests on Mars                            |
+| chests_moon                    | Chests on the Moon                        |
+| chests_venus                   | Chests on Venus                           |
+| cryptarch                      | Faction: Cryptarch                        |
+| eris                           | Faction: Eris (The Dark Below)            |
+| iron_banner                    | Event: Iron Banner                        |
+| queen_event                    | Event: Queen's Wrath                      |
+| vanguard                       | Faction: Vanguard                         |
+| crucible                       | Faction: Crucible                         |
+| dead_orbit                     | Faction: Dead Orbit                       |
+| fwc                            | Faction: Future War Cult                  |
+| new_monarchy                   | Faction: New Monarchy                     |
+| iron_banner_loss_tokens        | Iron Banner loss tokens                   |
+| pvp_tournament0_losses         | Tournament 0 losses                       |
+| pvp_tournament0_wins           | Tournament 0 wins                         |
+| fallen                         | Faction: Fallen (House of Wolves)         |
+| queen                          | Faction: Queen (House of Wolves)          |
+| superior_gear_material_source  | Superior gear material source             |
+| terminals                      | Terminals                                 |
+| trials_of_osiris_wins          | Trials of Osiris wins (House of Wolves)   |
+| trials_of_osiris_losses        | Trials of Osiris losses (House of Wolves) |
+| weekly_pve                     | Weekly PVE progression                    |
+| weekly_pvp                     | Weekly PVP progression                    |
+| test_faction                   | A test faction from Bungie                |
+
+You may retrieve the progression for any of the above keys.
 
 ```php
-$progressionData = $character->progression; // array
+$progression = $character->progression; // Destiny\Support\Collections\ProgressionCollection
+
+$crucibleProgression = $progression->get('crucible'); // Destiny\Game\Progression
+
+$erisProgression = $progression->get('eris'); // Destiny\Game\Progression
 ```
+
+The returned objects of the ``Destiny\Game\Progression`` contain a lot of data. Their data is available as properties, so you may request any of the following simply as a property of the ``Destiny\Game\Progression`` object.
+
+| Property name       | Return type | Description                                        |
+|---------------------|-------------|----------------------------------------------------|
+| dailyProgress       | integer     | XP for this progression today                      |
+| weeklyProgress      | integer     | XP for this progression this week                  |
+| currentProgress     | integer     | XP for this progression in total                   |
+| level               | integer     | Level for this progression                         |
+| step                | integer     | Step of this progression                           |
+| progressToNextLevel | integer     | XP progress toward next level of this progression  |
+| nextLevelAt         | integer     | XP needed to reach next level of this progression  |
+| progressionHash     | integer     | Hash of this progression                           |
+| name                | string      | Name of this progression as given by Bungie        |
+| scope               | integer     | Scope of this progression                          |
+| repeatLastStep      | boolean     | Whether this progression repeats it's last step    |
+| icon                | string      | Path to the icon for this progression (not on all) |
+| identifier          | string      | This progression's identifier (not on all)         |
+| steps               | array       | Steps for this progression                         |
+
+To get any of those properties you simply retrieve them from the ``Destiny\Game\Progression`` object like you would any other property.
+
+```php
+$fwcProgression = $progression->get('fwc'); // Destiny\Game\Progression
+
+$fwcLevel = $fwcProgression->level; // integer
+
+$fwcProgressToNextLevel = $fwcProgression->progressToNextLevel; // integer
+```
+
+Progression data is extremely powerful and rich, it contains stuff that isn't even on the public interface (yet?) like ban progressions and DLC factions.
 
 #### Activity Data
 
