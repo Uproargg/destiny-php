@@ -1,5 +1,4 @@
-Destiny API wrapper in PHP
-===========
+# Destiny API wrapper in PHP
 
 [![Build Status](https://img.shields.io/travis/aFreshMelon/destiny-php.svg)](https://travis-ci.org/aFreshMelon/destiny-php) 
 [![Latest Stable Version](https://img.shields.io/packagist/v/afreshmelon/destiny.svg?label=latest%20stable)](https://packagist.org/packages/afreshmelon/destiny) 
@@ -14,11 +13,12 @@ Destiny API wrapper in PHP
         * [Activity Data](#activity-data)
         * [Post Game Carnage Reports](#post-game-carnage-reports)
     * [Inventory](#inventory)
+* [Copyright and license](#copyright-and-license)
 
 This is an easy to use PHP wrapper for the Destiny API by Bungie. 
 This includes characters equipment, progression and all sorts of other information.
 
-# Basic Usage
+## Basic Usage
 
 Install the latest stable version with `composer require afreshmelon/destiny`
 
@@ -41,9 +41,9 @@ $firstCharacter = $player->characters->first();
 echo $firstCharacter->characterLevel;
 ```
 
-# Documentation
+## Documentation
 
-## Players
+### Players
 
 You can find any Destiny player on the Xbox or the PlayStation. 
 This does not disclose whether a player is on Xbox One or Xbox 360 / PS4 or PS3, they are treated equally.
@@ -100,7 +100,7 @@ The Player class has one more property called ``characters``. Once initialized t
 fetch all characters associated with it from Bungie and store them as a ``\Destiny\Support\Collections\CharacterCollection``
 in the ``characters`` property. The functionality of this is explained in the next section.
 
-### Grimoire Data
+#### Grimoire Data
 
 You can easily access a player's Grimoire score using the ``grimoireScore`` property on an character, but sometimes you
 might want some more detail about a player's Grimoire data.
@@ -115,7 +115,7 @@ it at your own will using the ``fetchGrimoireData`` method which will return a m
 $grimoireData = $player->fetchGrimoireData(); // array
 ```
 
-## Characters
+### Characters
 
 A players characters can be accessed through a character collection (``\Destiny\Support\Collections\CharacterCollection``)
 which is automatically filled and available in any fetched Player class as the ``characters`` property.
@@ -198,7 +198,7 @@ echo $translator->reverse($character->classHash); // integer
 The character class is packed with information, perhaps one of the most important infos comes from another class that
 can be accessed from the ``inventory`` property within the Character class.
 
-### Progression / Vendors
+#### Progression / Vendors
 
 With every character the progression data is also fetched. It contains all sorts of useful information, most useful are probably the
 vendor levels and progressions that are all included with it. The progression data is stored as the response array right now - this may
@@ -208,7 +208,7 @@ change to a wrapper class in the future.
 $progressionData = $character->progression; // array
 ```
 
-### Activity Data
+#### Activity Data
 
 An interface to retrieve activity data is provided out of the box. As there is lots of activity data on every single character
 it is not fetched automatically. Instead there is a function for you to easily retrieve all sorts of activity data.
@@ -247,7 +247,7 @@ $controlData = $character->fetchActivityData(10); // array
 $controlDataWithoutExtraInfo = $character->fetchActivityData(10, false); // array
 ```
 
-### Post Game Carnage Reports
+#### Post Game Carnage Reports
 
 Post game carnage reports for crucible matches and all other activities can be received with a helper method. You will need an activityId
 which you can get from the ``fetchActivityData`` method described above. Then you may call ``fetchPostGameCarnageReport`` on it to receive
@@ -266,7 +266,7 @@ $pgcrWithoutExtraInfo = $character->fetchPostGameCarnageReport($rumbleMatchId, f
 Keep in mind that the report includes closing info for every player in the activity, so you can get info about anyone who you played with
 using this report.
 
-## Inventory
+### Inventory
 
 The inventory is one of the most important things about a Destiny character. It is available from the ``inventory`` property
 in the Character class and is an object of type ``\Destiny\Game\Inventory``. It contains all important information about
@@ -305,3 +305,7 @@ echo $item->itemName; // string
 
 echo $item->itemTypeName; // string
 ```
+
+## Copyright and license
+
+Copyright 2015 by Sebastian Barfurth. Licensed under the [MIT license](https://github.com/sebastianbarfurth/destiny-php/blob/master/LICENSE).
