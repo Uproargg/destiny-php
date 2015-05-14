@@ -20,7 +20,7 @@ This includes characters equipment, progression and all sorts of other informati
 
 ## Basic Usage
 
-Install the latest stable version with `composer require afreshmelon/destiny`
+Install the latest stable version with `composer require sebastianbarfurth/destiny`
 
 ```php
 <?php
