@@ -1,8 +1,8 @@
 # Destiny API wrapper in PHP
 
-[![Build Status](https://img.shields.io/travis/aFreshMelon/destiny-php.svg)](https://travis-ci.org/aFreshMelon/destiny-php) 
-[![Latest Stable Version](https://img.shields.io/packagist/v/afreshmelon/destiny.svg?label=latest%20stable)](https://packagist.org/packages/afreshmelon/destiny) 
-[![Downloads](https://img.shields.io/packagist/dt/afreshmelon/destiny.svg)](https://packagist.org/packages/afreshmelon/destiny)
+[![Build Status](https://img.shields.io/travis/sebastianbarfurth/destiny-php.svg)](https://travis-ci.org/sebastianbarfurth/destiny-php) 
+[![Latest Stable Version](https://img.shields.io/packagist/v/sebastianbarfurth/destiny.svg?label=latest%20stable)](https://packagist.org/packages/sebastianbarfurth/destiny) 
+[![Downloads](https://img.shields.io/packagist/dt/sebastianbarfurth/destiny.svg)](https://packagist.org/packages/sebastianbarfurth/destiny)
 
 * [Basic Usage](#basic-usage)
 * [Documentation](#documentation)

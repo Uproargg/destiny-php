@@ -1,11 +1,11 @@
 {
-    "name": "afreshmelon/destiny",
+    "name": "sebastianbarfurth/destiny",
     "description": "PHP API for Destiny the game",
     "license": "MIT",
     "authors": [
         {
             "name": "Sebastian Barfurth",
-            "email": "github@afreshmelon.com"
+            "email": "contact@sebastianbarfurth.de"
         }
     ],
     "require": {
