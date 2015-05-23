@@ -1,10 +1,11 @@
-<?php namespace Destiny\Game;
+<?php
+
+namespace Destiny\Game;
 
 use Destiny\Support\Traits\ResolvesKeysToProperties;
 
 class Item
 {
-
     use ResolvesKeysToProperties;
 
     /**
@@ -15,7 +16,7 @@ class Item
     protected $item;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param $itemData
      * @param $itemDefinition
@@ -29,11 +30,11 @@ class Item
      * Retrieve keys with a magic getter.
      *
      * @param $name
+     *
      * @return null
      */
     public function __get($name)
     {
         return $this->resolveKey($name, $this->item);
     }
-
 }

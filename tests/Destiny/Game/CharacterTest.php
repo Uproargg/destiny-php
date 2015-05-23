@@ -1,11 +1,12 @@
-<?php namespace Destiny\Game;
+<?php
+
+namespace Destiny\Game;
 
 use Destiny\Destiny;
 use Destiny\TestCase;
 
 class CharacterTest extends TestCase
 {
-
     /**
      * Test the fetchInventory method.
      */
@@ -89,5 +90,4 @@ class CharacterTest extends TestCase
 
         $this->assertEquals(32, $character->characterLevel);
     }
-
 }

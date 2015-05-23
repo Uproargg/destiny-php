@@ -1,11 +1,12 @@
-<?php namespace Destiny\Game;
+<?php
+
+namespace Destiny\Game;
 
 use Destiny\Destiny;
 use Destiny\TestCase;
 
 class ItemTest extends TestCase
 {
-
     /**
      * Test the magic getter.
      */
@@ -23,5 +24,4 @@ class ItemTest extends TestCase
 
         $this->assertInternalType('string', $item->itemName);
     }
-
 }

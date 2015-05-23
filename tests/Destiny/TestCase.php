@@ -1,4 +1,6 @@
-<?php namespace Destiny;
+<?php
+
+namespace Destiny;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Message\Response;
@@ -7,7 +9,6 @@ use GuzzleHttp\Subscriber\Mock;
 
 class TestCase extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * Create an instance of the Guzzle client for tests.
      *
@@ -15,7 +16,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
      */
     protected function http()
     {
-        $client = new Client;
+        $client = new Client();
 
         $mock = new Mock([
             $this->makeResponse('player'),
@@ -40,6 +41,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
      * Create a Response object from a stub.
      *
      * @param $stub
+     *
      * @return \GuzzleHttp\Message\Response
      */
     private function makeResponse($stub)
@@ -49,12 +51,11 @@ class TestCase extends \PHPUnit_Framework_TestCase
         $response->setHeader('Content-Type', 'application/json');
 
         $responseBody = Stream::factory(fopen(
-            './tests/Destiny/stubs/' . $stub . '.txt', 'r+')
+            './tests/Destiny/stubs/'.$stub.'.txt', 'r+')
         );
 
         $response->setBody($responseBody);
 
         return $response;
     }
-
 }

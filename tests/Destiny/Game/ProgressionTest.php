@@ -1,11 +1,12 @@
-<?php namespace Destiny\Game;
+<?php
+
+namespace Destiny\Game;
 
 use Destiny\Destiny;
 use Destiny\TestCase;
 
 class ProgressionTest extends TestCase
 {
-
     /**
      * Test the magic getter.
      */
@@ -42,5 +43,4 @@ class ProgressionTest extends TestCase
         $this->assertInternalType('int', $level->totalSteps);
         $this->assertEquals(20, $level->totalSteps);
     }
-
 }

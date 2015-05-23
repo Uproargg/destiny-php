@@ -1,11 +1,12 @@
-<?php namespace Destiny\Game;
+<?php
+
+namespace Destiny\Game;
 
 use Destiny\Destiny;
 use Destiny\TestCase;
 
 class InventoryTest extends TestCase
 {
-
     /**
      * Test the makeItem method.
      */
@@ -61,5 +62,4 @@ class InventoryTest extends TestCase
         $this->assertCount(3, $inventory->weapons());
         $this->assertCount(4, $inventory->armor());
     }
-
 }

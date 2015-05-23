@@ -1,11 +1,12 @@
-<?php namespace Destiny\Game;
+<?php
+
+namespace Destiny\Game;
 
 use Destiny\Destiny;
 use Destiny\TestCase;
 
 class PlayerTest extends TestCase
 {
-
     /**
      * Test the fetchCharacters method.
      */
@@ -33,5 +34,4 @@ class PlayerTest extends TestCase
         $this->assertInternalType('array', $grimoireData);
         $this->assertArrayHasKey('cardCollection', $grimoireData['Response']['data']);
     }
-
 }

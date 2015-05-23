@@ -1,8 +1,9 @@
-<?php namespace Destiny;
+<?php
+
+namespace Destiny;
 
 class DestinyTest extends TestCase
 {
-
     /**
      * Test the fetchPlayer method.
      */
@@ -26,5 +27,4 @@ class DestinyTest extends TestCase
 
         $this->assertInternalType('bool', $playerExists);
     }
-
 }

@@ -1,6 +1,7 @@
-<?php namespace Destiny\Support\Collections;
+<?php
+
+namespace Destiny\Support\Collections;
 
 class ProgressionCollection extends Collection
 {
-
 }

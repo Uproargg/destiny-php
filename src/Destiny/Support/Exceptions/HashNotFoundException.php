@@ -1,6 +1,7 @@
-<?php namespace Destiny\Support\Exceptions;
+<?php
+
+namespace Destiny\Support\Exceptions;
 
 class HashNotFoundException extends \OutOfBoundsException
 {
-
 }

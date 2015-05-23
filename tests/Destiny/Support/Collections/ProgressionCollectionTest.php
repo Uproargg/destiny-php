@@ -1,11 +1,12 @@
-<?php namespace Destiny\Support\Collections;
+<?php
+
+namespace Destiny\Support\Collections;
 
 use Destiny\Destiny;
 use Destiny\TestCase;
 
 class ProgressionCollectionTest extends TestCase
 {
-
     /**
      * Test that the translation of keys worked.
      */
@@ -21,5 +22,4 @@ class ProgressionCollectionTest extends TestCase
 
         $this->assertInstanceOf('Destiny\Game\Progression', $progressionCollection->get('vanguard'));
     }
-
 }

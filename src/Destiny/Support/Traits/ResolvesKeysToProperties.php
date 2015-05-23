@@ -1,13 +1,15 @@
-<?php namespace Destiny\Support\Traits;
+<?php
+
+namespace Destiny\Support\Traits;
 
 trait ResolvesKeysToProperties
 {
-
     /**
      * Resolve a key from the character info array.
      *
      * @param $key
      * @param $array
+     *
      * @return null
      */
     protected function resolveKey($key, $array)
@@ -22,15 +24,15 @@ trait ResolvesKeysToProperties
             }
         }
 
-        return null;
+        return;
     }
 
     /**
      * Retrieve keys with a magic getter.
      *
      * @param $name
+     *
      * @return null
      */
     abstract public function __get($name);
-
 }

@@ -1,10 +1,11 @@
-<?php namespace Destiny\Game;
+<?php
+
+namespace Destiny\Game;
 
 use Destiny\Support\Traits\ResolvesKeysToProperties;
 
 class Progression
 {
-
     use ResolvesKeysToProperties;
 
     /**
@@ -17,12 +18,12 @@ class Progression
     /**
      * The total amount of steps this progression has.
      *
-     * @var integer
+     * @var int
      */
     public $totalSteps;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param array $progressionData
      */
@@ -36,11 +37,11 @@ class Progression
      * Retrieve keys with a magic getter.
      *
      * @param $name
+     *
      * @return null
      */
     public function __get($name)
     {
         return $this->resolveKey($name, $this->progressionData);
     }
-
 }

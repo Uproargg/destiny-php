@@ -1,10 +1,11 @@
-<?php namespace Destiny\Support\Collections;
+<?php
+
+namespace Destiny\Support\Collections;
 
 use Countable;
 
 class Collection implements Countable
 {
-
     /**
      * The items of the collection.
      *
@@ -13,7 +14,7 @@ class Collection implements Countable
     protected $items = [];
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param array $items
      */
@@ -36,6 +37,7 @@ class Collection implements Countable
      * Get an item from the collection by key.
      *
      * @param $key
+     *
      * @return mixed|null
      */
     public function get($key)
@@ -82,5 +84,4 @@ class Collection implements Countable
     {
         return count($this->items);
     }
-
 }

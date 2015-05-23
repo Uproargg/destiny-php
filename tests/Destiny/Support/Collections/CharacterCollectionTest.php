@@ -1,10 +1,12 @@
-<?php namespace Destiny\Support\Collections;
+<?php
 
-use Destiny\TestCase;
+namespace Destiny\Support\Collections;
+
 use Destiny\Destiny;
+use Destiny\TestCase;
 
-class CharacterCollectionTest extends TestCase {
-
+class CharacterCollectionTest extends TestCase
+{
     /**
      * Test the getByClassHash method.
      */
@@ -46,6 +48,4 @@ class CharacterCollectionTest extends TestCase {
 
         $this->assertEquals(3, $characterCollection->count());
     }
-
 }
- 

@@ -1,4 +1,6 @@
-<?php namespace Destiny\Game;
+<?php
+
+namespace Destiny\Game;
 
 use Destiny\Support\Collections\ProgressionCollection;
 use Destiny\Support\Traits\MakesApiConnections;
@@ -8,7 +10,6 @@ use GuzzleHttp\Client;
 
 class Character
 {
-
     use MakesApiConnections, ResolvesKeysToProperties;
 
     /**
@@ -33,9 +34,9 @@ class Character
     public $progression;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param array $characterData
+     * @param array              $characterData
      * @param \GuzzleHttp\Client $http
      */
     public function __construct(array $characterData, Client $http)
@@ -53,7 +54,7 @@ class Character
      */
     protected function fetchInventory()
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/' . $this->membershipType . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Inventory?definitions=true');
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/'.$this->membershipType.'/Account/'.$this->membershipId.'/Character/'.$this->characterId.'/Inventory?definitions=true');
 
         return new Inventory($json);
     }
@@ -65,9 +66,9 @@ class Character
      */
     protected function fetchProgression()
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/' . $this->membershipType . '/Account/' . $this->membershipId . '/Character/' . $this->characterId . '/Progression?definitions=true');
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/'.$this->membershipType.'/Account/'.$this->membershipId.'/Character/'.$this->characterId.'/Progression?definitions=true');
 
-        $translator = new ProgressionTranslator;
+        $translator = new ProgressionTranslator();
 
         foreach ($json['Response']['data']['progressions'] as $progression) {
             $definition = $json['Response']['definitions']['progressions'][$progression['progressionHash']];
@@ -87,11 +88,12 @@ class Character
      *
      * @param $activityType
      * @param $definitions
+     *
      * @return array
      */
     public function fetchActivityData($activityType, $definitions = true)
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/ActivityHistory/' . $this->membershipType . '/' . $this->membershipId . '/' . $this->characterId . '/?mode=' . $activityType . '&definitions=' . json_encode($definitions));
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/ActivityHistory/'.$this->membershipType.'/'.$this->membershipId.'/'.$this->characterId.'/?mode='.$activityType.'&definitions='.json_encode($definitions));
 
         return $json;
     }
@@ -101,11 +103,12 @@ class Character
      *
      * @param $activityId
      * @param $definitions
+     *
      * @return array
      */
     public function fetchPostGameCarnageReport($activityId, $definitions = true)
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/PostGameCarnageReport/' . $activityId . '&definitions=' . json_encode($definitions));
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/PostGameCarnageReport/'.$activityId.'&definitions='.json_encode($definitions));
 
         return $json;
     }
@@ -114,11 +117,11 @@ class Character
      * Retrieve keys with a magic getter.
      *
      * @param $name
+     *
      * @return null
      */
     public function __get($name)
     {
         return $this->resolveKey($name, $this->characterData);
     }
-
 }

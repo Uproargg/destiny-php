@@ -1,4 +1,6 @@
-<?php namespace Destiny;
+<?php
+
+namespace Destiny;
 
 use Destiny\Game\Player;
 use Destiny\Support\Exceptions\PlayerNotFoundException;
@@ -7,17 +9,16 @@ use GuzzleHttp\Client;
 
 class Destiny
 {
-
     use MakesApiConnections;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param \GuzzleHttp\Client $http
      */
     public function __construct(Client $http = null)
     {
-        $this->http = new Client;
+        $this->http = new Client();
 
         if (!is_null($http)) {
             $this->http = $http;
@@ -29,14 +30,15 @@ class Destiny
      *
      * @param $username
      * @param $platform
+     *
      * @return \Destiny\Game\User
      */
     public function fetchPlayer($username, $platform)
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/SearchDestinyPlayer/' . $platform . '/' . $username);
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/SearchDestinyPlayer/'.$platform.'/'.$username);
 
         if (!isset($json['Response'][0]['membershipId'])) {
-            throw new PlayerNotFoundException;
+            throw new PlayerNotFoundException();
         }
 
         return new Player(
@@ -53,12 +55,12 @@ class Destiny
      *
      * @param $username
      * @param $platform
+     *
      * @return bool
      */
     public function playerExists($username, $platform)
     {
-        try
-        {
+        try {
             $this->fetchPlayer($username, $platform);
         } catch (PlayerNotFoundException $e) {
             return false;
@@ -71,6 +73,7 @@ class Destiny
      * Fetch an Xbox player by username.
      *
      * @param $username
+     *
      * @return \Destiny\Game\User
      */
     public function fetchXboxPlayer($username)
@@ -82,11 +85,11 @@ class Destiny
      * Fetch a PSN player by username.
      *
      * @param $username
+     *
      * @return \Destiny\Game\User
      */
     public function fetchPsnPlayer($username)
     {
         return $this->fetchPlayer($username, 2);
     }
-
 }

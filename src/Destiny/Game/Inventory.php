@@ -1,8 +1,9 @@
-<?php namespace Destiny\Game;
+<?php
+
+namespace Destiny\Game;
 
 class Inventory
 {
-
     /**
      * Items in the inventory.
      *
@@ -25,7 +26,7 @@ class Inventory
     protected $inventoryCurrencies;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param array $inventoryData
      */
@@ -40,6 +41,7 @@ class Inventory
      * Makes Item classes from an index.
      *
      * @param $index
+     *
      * @return \Destiny\Game\Item
      */
     protected function makeItem($index)
@@ -250,5 +252,4 @@ class Inventory
             $this->boots(),
         ];
     }
-
 }

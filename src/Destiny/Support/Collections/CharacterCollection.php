@@ -1,10 +1,11 @@
-<?php namespace Destiny\Support\Collections;
+<?php
+
+namespace Destiny\Support\Collections;
 
 use Destiny\Support\Translators\HashTranslator;
 
 class CharacterCollection extends Collection
 {
-
     /**
      * An instance of the HashTranslator.
      *
@@ -13,20 +14,21 @@ class CharacterCollection extends Collection
     protected $translator;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param array $items
      */
     public function __construct(array $items)
     {
         $this->items = $items;
-        $this->translator = new HashTranslator;
+        $this->translator = new HashTranslator();
     }
 
     /**
      * Get characters by class hash.
      *
      * @param $classHash
+     *
      * @return array|null
      */
     public function getByClassHash($classHash)
@@ -46,6 +48,7 @@ class CharacterCollection extends Collection
      * Get characters by class name.
      *
      * @param $className
+     *
      * @return array|null
      */
     public function getByClassName($className)
@@ -87,6 +90,7 @@ class CharacterCollection extends Collection
      * Get the first characters by class hash.
      *
      * @param $classHash
+     *
      * @return \Destiny\Game\Character|null
      */
     public function firstByClassHash($classHash)
@@ -97,13 +101,14 @@ class CharacterCollection extends Collection
             }
         }
 
-        return null;
+        return;
     }
 
     /**
      * Get characters by class name.
      *
      * @param $className
+     *
      * @return \Destiny\Game\Character|null
      */
     public function firstByClassName($className)
@@ -140,5 +145,4 @@ class CharacterCollection extends Collection
     {
         return $this->firstByClassHash(671679327);
     }
-
 }

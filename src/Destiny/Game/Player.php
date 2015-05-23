@@ -1,4 +1,6 @@
-<?php namespace Destiny\Game;
+<?php
+
+namespace Destiny\Game;
 
 use Destiny\Support\Collections\CharacterCollection;
 use Destiny\Support\Exceptions\NoCharactersFoundException;
@@ -7,7 +9,6 @@ use GuzzleHttp\Client;
 
 class Player
 {
-
     use MakesApiConnections;
 
     /**
@@ -46,7 +47,7 @@ class Player
     public $characters;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param $iconPath
      * @param $membershipType
@@ -71,10 +72,10 @@ class Player
      */
     protected function fetchCharacters()
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/' . $this->membershipType . '/Account/' . $this->membershipId);
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/'.$this->membershipType.'/Account/'.$this->membershipId);
 
         if (count($json['Response']['data']['characters']) < 1) {
-            throw new NoCharactersFoundException;
+            throw new NoCharactersFoundException();
         }
 
         foreach ($json['Response']['data']['characters'] as $character) {
@@ -91,9 +92,8 @@ class Player
      */
     public function fetchGrimoireData()
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Vanguard/Grimoire/' . $this->membershipType . '/' . $this->membershipId . '/?definitions=true');
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Vanguard/Grimoire/'.$this->membershipType.'/'.$this->membershipId.'/?definitions=true');
 
         return $json;
     }
-
 }
