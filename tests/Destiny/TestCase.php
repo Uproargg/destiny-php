@@ -5,7 +5,6 @@ namespace Destiny;
 use GuzzleHttp\Client;
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Stream\Stream;
-use GuzzleHttp\Subscriber\Mock;
 
 class TestCase extends \PHPUnit_Framework_TestCase
 {

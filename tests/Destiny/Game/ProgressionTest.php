@@ -2,7 +2,6 @@
 
 namespace Destiny\Game;
 
-use Destiny\Destiny;
 use Destiny\TestCase;
 
 class ProgressionTest extends TestCase
