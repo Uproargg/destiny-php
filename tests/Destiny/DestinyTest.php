@@ -9,9 +9,7 @@ class DestinyTest extends TestCase
      */
     public function testFetchPlayer()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $this->assertInstanceOf('Destiny\Game\Player', $player);
     }
@@ -21,9 +19,7 @@ class DestinyTest extends TestCase
      */
     public function testPlayerExists()
     {
-        $destiny = new Destiny($this->http());
-
-        $playerExists = $destiny->playerExists('Player', 1);
+        $playerExists = $this->destinyClient()->playerExists('Player', 1);
 
         $this->assertInternalType('bool', $playerExists);
     }

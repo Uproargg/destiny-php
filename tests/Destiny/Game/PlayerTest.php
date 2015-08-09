@@ -12,9 +12,7 @@ class PlayerTest extends TestCase
      */
     public function testFetchCharacters()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $this->assertInstanceOf('Destiny\Support\Collections\CharacterCollection', $player->characters);
         $this->assertCount(3, $player->characters->all());
@@ -25,9 +23,7 @@ class PlayerTest extends TestCase
      */
     public function testFetchGrimoireData()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $grimoireData = $player->fetchGrimoireData();
 

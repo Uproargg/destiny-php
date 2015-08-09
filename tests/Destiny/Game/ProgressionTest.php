@@ -12,9 +12,7 @@ class ProgressionTest extends TestCase
      */
     public function testMagicGetter()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $character = $player->characters->first();
 
@@ -30,9 +28,7 @@ class ProgressionTest extends TestCase
      */
     public function testTotalSteps()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $character = $player->characters->first();
 

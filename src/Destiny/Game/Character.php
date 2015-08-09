@@ -108,7 +108,7 @@ class Character
      */
     public function fetchPostGameCarnageReport($activityId, $definitions = true)
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/PostGameCarnageReport/'.$activityId.'&definitions='.json_encode($definitions));
+        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/PostGameCarnageReport/'.$activityId);
 
         return $json;
     }

@@ -12,9 +12,7 @@ class CharacterTest extends TestCase
      */
     public function testFetchInventory()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $character = $player->characters->first();
 
@@ -26,9 +24,7 @@ class CharacterTest extends TestCase
      */
     public function testFetchProgression()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $character = $player->characters->first();
 
@@ -42,9 +38,7 @@ class CharacterTest extends TestCase
      */
     public function testFetchActivityData()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $character = $player->characters->first();
 
@@ -61,9 +55,7 @@ class CharacterTest extends TestCase
      */
     public function testFetchPostGameCarnageReport()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $character = $player->characters->first();
 
@@ -82,12 +74,10 @@ class CharacterTest extends TestCase
      */
     public function testMagicGetter()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $character = $player->characters->first();
 
-        $this->assertEquals(32, $character->characterLevel);
+        $this->assertEquals(34, $character->characterLevel);
     }
 }

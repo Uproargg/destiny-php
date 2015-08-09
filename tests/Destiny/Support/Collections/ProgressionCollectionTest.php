@@ -12,9 +12,7 @@ class ProgressionCollectionTest extends TestCase
      */
     public function testGetByTranslatedKey()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $character = $player->characters->first();
 

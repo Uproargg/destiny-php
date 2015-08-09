@@ -10,31 +10,13 @@ use GuzzleHttp\Subscriber\Mock;
 class TestCase extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Create an instance of the Guzzle client for tests.
-     *
-     * @return \GuzzleHttp\Client
+     * The Destiny client instance.
+     * 
+     * @return \Destiny\Destiny
      */
-    protected function http()
+    protected function destinyClient()
     {
-        $client = new Client();
-
-        $mock = new Mock([
-            $this->makeResponse('player'),
-            $this->makeResponse('characters'),
-            $this->makeResponse('inventory1'),
-            $this->makeResponse('progression1'),
-            $this->makeResponse('inventory2'),
-            $this->makeResponse('progression2'),
-            $this->makeResponse('inventory3'),
-            $this->makeResponse('progression3'),
-            $this->makeResponse('grimoire'),
-            $this->makeResponse('activities'),
-            $this->makeResponse('pgcr'),
-        ]);
-
-        $client->getEmitter()->attach($mock);
-
-        return $client;
+        return new Destiny(getenv('DESTINY_API_KEY'));
     }
 
     /**

@@ -29,7 +29,7 @@ Install the latest stable version with `composer require sebastianbarfurth/desti
 require 'vendor/autoload.php';
 
 // Create a new instance of the client
-$destiny = new \Destiny\Destiny;
+$destiny = new \Destiny\Destiny('YOUR_API_KEY');
 
 // Find a player
 $player = $destiny->fetchXboxPlayer('aFreshMelon');

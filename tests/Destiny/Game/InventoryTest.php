@@ -12,9 +12,7 @@ class InventoryTest extends TestCase
      */
     public function testMakeItem()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $character = $player->characters->first();
 
@@ -31,9 +29,7 @@ class InventoryTest extends TestCase
      */
     public function testMarksAndGlimmer()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $character = $player->characters->first();
 
@@ -49,9 +45,7 @@ class InventoryTest extends TestCase
      */
     public function testCollectionMethods()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $character = $player->characters->first();
 

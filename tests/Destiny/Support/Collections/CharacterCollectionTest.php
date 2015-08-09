@@ -12,9 +12,7 @@ class CharacterCollectionTest extends TestCase
      */
     public function testGetByClassHash()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $characterCollection = $player->characters;
 
@@ -26,9 +24,7 @@ class CharacterCollectionTest extends TestCase
      */
     public function testFirstByClassHash()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $characterCollection = $player->characters;
 
@@ -40,9 +36,7 @@ class CharacterCollectionTest extends TestCase
      */
     public function testCount()
     {
-        $destiny = new Destiny($this->http());
-
-        $player = $destiny->fetchPlayer('aFreshMelon', 1);
+        $player = $this->destinyClient()->fetchPlayer('aFreshMelon', 1);
 
         $characterCollection = $player->characters;
 
