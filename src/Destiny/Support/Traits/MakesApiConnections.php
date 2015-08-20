@@ -15,7 +15,7 @@ trait MakesApiConnections
     protected $http;
 
     /**
-     * Request a URL an throw an exception if there is no response, otherwise handle JSON.
+     * Request a URL and throw an exception if there is no response, otherwise handle JSON.
      *
      * @param $url
      *

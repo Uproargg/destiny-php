@@ -3,6 +3,7 @@
 namespace Destiny\Support\Collections;
 
 use Destiny\Support\Translators\HashTranslator;
+use Illuminate\Support\Collection;
 
 class CharacterCollection extends Collection
 {
