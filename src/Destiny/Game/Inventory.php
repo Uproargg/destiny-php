@@ -205,23 +205,13 @@ class Inventory
     }
 
     /**
-     * The amount of crucible marks this character has.
+     * The amount of legendary marks this character has.
      *
      * @return int
      */
-    public function crucibleMarks()
+    public function legendaryMarks()
     {
         return $this->inventoryCurrencies[1]['value'];
-    }
-
-    /**
-     * The amount of vanguard marks this character has.
-     *
-     * @return int
-     */
-    public function vanguardMarks()
-    {
-        return $this->inventoryCurrencies[2]['value'];
     }
 
     /**

@@ -36,8 +36,7 @@ class InventoryTest extends TestCase
         $inventory = $character->inventory;
 
         $this->assertInternalType('int', $inventory->glimmer());
-        $this->assertInternalType('int', $inventory->crucibleMarks());
-        $this->assertInternalType('int', $inventory->vanguardMarks());
+        $this->assertInternalType('int', $inventory->legendaryMarks());
     }
 
     /**

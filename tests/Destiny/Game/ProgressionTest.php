@@ -36,6 +36,6 @@ class ProgressionTest extends TestCase
         $level = $progression->get('character_level');
 
         $this->assertInternalType('int', $level->totalSteps);
-        $this->assertEquals(20, $level->totalSteps);
+        $this->assertEquals(40, $level->totalSteps);
     }
 }
