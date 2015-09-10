@@ -360,10 +360,10 @@ $classItem = $inventory->classItem(); // Destiny\Game\Item
 I will reiterate, you can always look in the code if you can't find what you're looking for.
 
 The Inventory class also has 3 different functions. They return integer values of the Glimmer and the Marks of a character.
-Very surprisingly their names are ``glimmer``, ``crucibleMarks`` and ``vanguardMarks``.
+Very surprisingly their names are ``glimmer``, ``legendaryMarks``.
 
 ```php
-$vanguardMarks = $inventory->vanguardMarks(); // integer
+$legendaryMarks = $inventory->legendaryMarks(); // integer
 ```
 
 The fetched instances of ``\Destiny\Game\Item`` then have properties describing the items. Again, these are too many to list
