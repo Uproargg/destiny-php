@@ -40,11 +40,14 @@ class ProgressionTranslator implements Translates
         'queen'                         => 'r1_s3_factions_queen',
         'superior_gear_material_source' => 'superior_gear_material_source',
         'terminals'                     => 'terminals',
-        'trials_of_osiris_wins'         => 'r1_s3_tickets.pvp.trials_of_osiris.wins',
-        'trials_of_osiris_losses'       => 'r1_s3_tickets.pvp.trials_of_osiris.losses',
+        'trials_of_osiris_wins'         => 'r1_s4_tickets.pvp.trials_of_osiris.wins',
+        'trials_of_osiris_losses'       => 'r1_s4_tickets.pvp.trials_of_osiris.losses',
         'weekly_pve'                    => 'weekly_pve',
         'weekly_pvp'                    => 'weekly_pvp',
         'test_faction'                  => 'test_faction',
+        'character_gear_tilt'           => 'character_gear_tilt',
+        'gunsmith'                      => 'r1_s4_factions_gunsmith',
+        'hiveship_orbs'                 => 'r1_s4_hiveship_orbs',
     ];
 
     /**
