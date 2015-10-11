@@ -78,6 +78,6 @@ class CharacterTest extends TestCase
 
         $character = $player->characters->first();
 
-        $this->assertEquals(34, $character->characterLevel);
+        $this->assertEquals(40, $character->characterLevel);
     }
 }

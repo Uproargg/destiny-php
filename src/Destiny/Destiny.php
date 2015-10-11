@@ -19,7 +19,11 @@ class Destiny
      */
     public function __construct($apiKey, Client $http = null)
     {
-        $this->http = new Client(['headers' => ['X-API-Key' => $apiKey]]);
+        $this->http = new Client([
+            'defaults' => [
+                'headers' => ['X-API-Key' => $apiKey]
+            ]
+        ]);
 
         if (!is_null($http)) {
             $this->http = $http;
