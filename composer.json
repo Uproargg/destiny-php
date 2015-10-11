@@ -15,7 +15,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",
-        "codeclimate/php-test-reporter": "dev-master"
+        "codeclimate/php-test-reporter": "dev-master",
+        "vlucas/phpdotenv": "^2.0"
     },
     "autoload": {
         "psr-4": {"Destiny\\": "src/Destiny"}
