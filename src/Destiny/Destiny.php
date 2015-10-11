@@ -14,15 +14,15 @@ class Destiny
     /**
      * Constructor.
      *
-     * @param String             $apiKey
+     * @param string             $apiKey
      * @param \GuzzleHttp\Client $http
      */
     public function __construct($apiKey, Client $http = null)
     {
         $this->http = new Client([
             'defaults' => [
-                'headers' => ['X-API-Key' => $apiKey]
-            ]
+                'headers' => ['X-API-Key' => $apiKey],
+            ],
         ]);
 
         if (!is_null($http)) {
