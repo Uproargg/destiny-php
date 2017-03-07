@@ -25,12 +25,12 @@ trait MakesApiConnections
      */
     protected function requestJson($url)
     {
-        $response = $this->http->get($url);
+        $response = $this->http->get($url, []);
 
         if (!$response) {
             throw new BungieUnavailableException();
         }
 
-        return $response->json();
+        return json_decode($response->getBody()->getContents(), true);
     }
 }
