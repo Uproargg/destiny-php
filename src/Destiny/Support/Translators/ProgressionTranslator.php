@@ -48,6 +48,10 @@ class ProgressionTranslator implements Translates
         'character_gear_tilt'           => 'character_gear_tilt',
         'gunsmith'                      => 'r1_s4_factions_gunsmith',
         'hiveship_orbs'                 => 'r1_s4_hiveship_orbs',
+        'sparrow_racing'                => 'd15.winter.racing',
+        'year1_triumph'                 => 'd15.summer.record_books.triumph0',
+        'winter_record'                 => 'd15.winter.record_books.silver_chalice',
+        'roi_record'                    => 'd15.fall.record_books.rise_of_iron',
     ];
 
     /**

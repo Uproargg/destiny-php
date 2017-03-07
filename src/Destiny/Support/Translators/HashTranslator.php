@@ -34,6 +34,11 @@ class HashTranslator implements Translates
         '1424722124' => 'Future War Cult',
         '2033897742' => 'Weekly Vanguard Marks',
         '2033897755' => 'Weekly Crucible Marks',
+        '2335631936' => 'Gunsmith',
+        '2576753410' => 'Winter Racing',
+        '2225855327' => 'Winter Record Book',
+        '3433868304' => 'Rise of Iron Record Book',
+        '2175864601' => 'Year 1 Triumph',
     ];
 
     /**
