@@ -52,6 +52,7 @@ class ProgressionTranslator implements Translates
         'year1_triumph'                 => 'd15.summer.record_books.triumph0',
         'winter_record'                 => 'd15.winter.record_books.silver_chalice',
         'roi_record'                    => 'd15.fall.record_books.rise_of_iron',
+        'age_of_triumph'                => 'd15.v260.record_books.ages',
     ];
 
     /**
