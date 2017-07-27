@@ -3,6 +3,7 @@
 namespace Destiny\Support\Traits;
 
 use Destiny\Support\Exceptions\BungieUnavailableException;
+use Destiny\Support\Exceptions\LegacyPlatformException;
 use GuzzleHttp\Client;
 
 trait MakesApiConnections
@@ -31,6 +32,16 @@ trait MakesApiConnections
             throw new BungieUnavailableException();
         }
 
-        return json_decode($response->getBody()->getContents(), true);
+        $json = json_decode($response->getBody()->getContents(), true);
+
+        if (isset($json['ErrorCode'])) {
+            switch ($json['ErrorCode']) {
+                case 1670:
+                    throw new LegacyPlatformException();
+                    break;
+            }
+        }
+
+        return $json;
     }
 }
