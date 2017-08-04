@@ -54,7 +54,7 @@ class Character
      */
     protected function fetchInventory()
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/'.$this->membershipType.'/Account/'.$this->membershipId.'/Character/'.$this->characterId.'/Inventory?definitions=true');
+        $json = $this->requestJson('http://bungie.net/d1/Platform/Destiny/'.$this->membershipType.'/Account/'.$this->membershipId.'/Character/'.$this->characterId.'/Inventory?definitions=true');
 
         return new Inventory($json);
     }
@@ -66,7 +66,7 @@ class Character
      */
     protected function fetchProgression()
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/'.$this->membershipType.'/Account/'.$this->membershipId.'/Character/'.$this->characterId.'/Progression?definitions=true');
+        $json = $this->requestJson('http://bungie.net/d1/Platform/Destiny/'.$this->membershipType.'/Account/'.$this->membershipId.'/Character/'.$this->characterId.'/Progression?definitions=true');
 
         $translator = new ProgressionTranslator();
 
@@ -93,7 +93,7 @@ class Character
      */
     public function fetchActivityData($activityType, $definitions = true)
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/ActivityHistory/'.$this->membershipType.'/'.$this->membershipId.'/'.$this->characterId.'/?mode='.$activityType.'&definitions='.json_encode($definitions));
+        $json = $this->requestJson('http://bungie.net/d1/Platform/Destiny/Stats/ActivityHistory/'.$this->membershipType.'/'.$this->membershipId.'/'.$this->characterId.'/?mode='.$activityType.'&definitions='.json_encode($definitions));
 
         return $json;
     }
@@ -108,7 +108,7 @@ class Character
      */
     public function fetchPostGameCarnageReport($activityId, $definitions = true)
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Stats/PostGameCarnageReport/'.$activityId);
+        $json = $this->requestJson('http://bungie.net/d1/Platform/Destiny/Stats/PostGameCarnageReport/'.$activityId);
 
         return $json;
     }

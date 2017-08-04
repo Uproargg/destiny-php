@@ -38,7 +38,7 @@ class Destiny
      */
     public function fetchPlayer($username, $platform)
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/SearchDestinyPlayer/'.$platform.'/'.$username);
+        $json = $this->requestJson('http://bungie.net/d1/Platform/Destiny/SearchDestinyPlayer/'.$platform.'/'.$username);
 
         if (!isset($json['Response'][0]['membershipId'])) {
             throw new PlayerNotFoundException();

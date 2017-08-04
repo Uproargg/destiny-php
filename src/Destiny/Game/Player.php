@@ -72,7 +72,7 @@ class Player
      */
     protected function fetchCharacters()
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/'.$this->membershipType.'/Account/'.$this->membershipId);
+        $json = $this->requestJson('http://bungie.net/d1/Platform/Destiny/'.$this->membershipType.'/Account/'.$this->membershipId);
 
         if (count($json['Response']['data']['characters']) < 1) {
             throw new NoCharactersFoundException();
@@ -92,7 +92,7 @@ class Player
      */
     public function fetchGrimoireData()
     {
-        $json = $this->requestJson('http://bungie.net/Platform/Destiny/Vanguard/Grimoire/'.$this->membershipType.'/'.$this->membershipId.'/?definitions=true');
+        $json = $this->requestJson('http://bungie.net/d1/Platform/Destiny/Vanguard/Grimoire/'.$this->membershipType.'/'.$this->membershipId.'/?definitions=true');
 
         return $json;
     }
